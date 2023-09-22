@@ -7,18 +7,20 @@ import CraftTools from '../../pages/CraftTools'
 import InduvidualItem from '../../pages/InduvidualItem'
 import Login from '../../pages/Login'
 import Cart from '../../pages/Cart'
+import NavBar from '../NavBar/NavBar'
 
 function App() {
   return (
     <div className="App">
-    <Routes>
-      <Route path='/' element={ <Home/>} /> 
-      <Route path='/yarn' element={<Yarn/>} />
-      <Route path='/crafttools' element={<CraftTools/>} />
-      <Route path='/books' element={<Books/>} />
-      <Route path='/cart' element={<Cart/>} />
-      <Route path='/login' element={<Login/>} />
-      <Route path='/product/:id' element={<InduvidualItem />} />
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/yarn' element={<Yarn />} />
+        <Route path='/crafttools' element={<CraftTools />} />
+        <Route path='/books' element={<Books />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/product/:id' element={<InduvidualItem />} />
       </Routes>
     </div>
   );
