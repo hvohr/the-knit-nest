@@ -2,7 +2,6 @@
 import SingleBook from '../components/SingleBook/SingleBook'
 
 function Books(props) {
-
   return (
     <section>
       <h1>Books</h1>

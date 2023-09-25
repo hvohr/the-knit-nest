@@ -19,6 +19,7 @@ function App() {
     getAllBooks().then(
       data => {
         setBooks(data.books)
+        sessionStorage.setItem('single', JSON.stringify(data.books))
       }
     )
   }, [])
@@ -33,7 +34,7 @@ function App() {
         <Route path='/books' element={<Books books={books}/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/product/:id' element={<InduvidualBook books={books}/>} />
+        <Route path='/books/:id' element={<InduvidualBook books={books}/>} />
       </Routes>
     </div>
   );
