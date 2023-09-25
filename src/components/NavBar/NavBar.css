@@ -2,15 +2,25 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgb(225, 225, 225);
 }
 
 .nav-icon {
-  height: 4vh;
+  width: 30px;
   background: none;
   border: none;
   margin: 10px;
+  padding: 5px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.discount {
+  background-color:#4e2375;
+  color: white;
+  font-size:20px;
+  margin: 0px;
+  padding: 5px;
 }
 
 .search-icon {
@@ -19,23 +29,31 @@ nav {
 }
 
 .site-logo {
-  height: 15vh;
+  width: 320px;
   margin-left: 10px;
   margin-right: 10px;
-
 }
 
 .topics-container {
   display: flex;
+  align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-end;
+  flex-wrap: wrap;
 }
 
 .nav-topics {
-  font-size: 2.7vh;
+  font-size: 25px;
+  margin: 20px;
+  width: contain;
   text-decoration: none;
   color: #4e2375;
-  margin: 100px;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
