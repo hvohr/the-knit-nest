@@ -21,6 +21,16 @@
   justify-content: center;
 }
 
+.go-back {
+  height: 50px;
+  padding: 10px;
+}
+
+.go-home-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .lion-brand-link,
 .crochet-book-link,
 .knitting-needle-link {

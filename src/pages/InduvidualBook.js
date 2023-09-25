@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 function InduvidualBook(props) {
   let refreshBook = sessionStorage.getItem('books')
@@ -9,6 +9,10 @@ function InduvidualBook(props) {
   }
   return (
     <section>
+      <div className='go-home-container'>
+        <Link to='/books'><img className='go-back' src={require('../components/images/left.png')} /></Link>
+        <h1>Go Back</h1>
+      </div>
       <div>
         <img src={singleCheck().image} />
       </div>

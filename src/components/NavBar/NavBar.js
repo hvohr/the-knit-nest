@@ -17,7 +17,7 @@ function NavBar() {
         <section className='user-container'>
           <button className='search-icon'><img className='nav-icon' src={require('../images/loupe.png')} /></button>
           <NavLink to='login'><img className='nav-icon' src={require('../images/user (1).png')} /></NavLink>
-          <NavLink to='login'><img className='nav-icon' src={require('../images/shopping-cart.png')} /></NavLink>
+          <NavLink to='cart'><img className='nav-icon' src={require('../images/shopping-cart.png')} /></NavLink>
         </section>
       </nav>
     </section>
