@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 
 function InduvidualBook(props) {
-  let refreshBook = sessionStorage.getItem('books')
+  let refreshBook = sessionStorage.getItem('single')
   let refreshBookArray = JSON.parse(refreshBook)
   const { id } = useParams();
   const singleCheck = () => {

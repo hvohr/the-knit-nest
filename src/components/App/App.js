@@ -34,7 +34,7 @@ function App() {
         <Route path='/books' element={<Books books={books}/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/books/:id' element={<InduvidualBook books={books}/>} />
+        <Route path='/books/:id' element={<InduvidualBook />} />
       </Routes>
     </div>
   );

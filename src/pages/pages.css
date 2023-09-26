@@ -21,6 +21,26 @@
   justify-content: center;
 }
 
+.book-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.book-image {
+  width: 250px;
+  height: 300px;
+}
+
+.small-book-container {
+  margin: 20px;
+  width: 25%;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: black;
+}
+
 .go-back {
   height: 50px;
   padding: 10px;
