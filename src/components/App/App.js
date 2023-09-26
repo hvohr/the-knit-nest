@@ -35,6 +35,8 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
         <Route path='/books/:id' element={<InduvidualBook />} />
+        {/* <Route path='/tools/:id' element={<InduvidualTool />} /> */}
+        {/* <Route path='/yarn/:id' element={<InduvidualYarn />} /> */}
       </Routes>
     </div>
   );
