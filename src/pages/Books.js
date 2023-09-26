@@ -1,4 +1,3 @@
-
 import SingleBook from '../components/SingleBook/SingleBook'
 
 function Books(props) {
