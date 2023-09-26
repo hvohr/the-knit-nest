@@ -17,9 +17,9 @@ const getAllCraftTools = async () => {
 }
 
 const getAllYarn = async () => {
-  const response = fetch('http://localhost:3001/api/v1/yarn')
+  const response = await fetch('http://localhost:3001/api/v1/yarn')
   if (!response.ok) {
-    throw new Error
+    throw new Error(response.status)
   }
   const data = await response.json()
   return data

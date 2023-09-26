@@ -38,28 +38,28 @@ function App() {
     )
   }, [])
 
-  // useEffect(() => {
-  //   getAllYarn().then(
-  //     data => {
-  //       setYarn(data.yarn)
-  //       sessionStorage.setItem('singleyarn', JSON.stringify(data.yarn))
-  //     }
-  //   )
-  // }, [])
+  useEffect(() => {
+    getAllYarn().then(
+      data => {
+        setYarn(data.yarn)
+        sessionStorage.setItem('singleyarn', JSON.stringify(data.yarn))
+      }
+    )
+  }, [])
 
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
-        {/* <Route path='/yarn' element={<Yarn yarn={yarn}/>} /> */}
+        <Route path='/yarn' element={<Yarn yarn={yarn}/>} />
         <Route path='/crafttools' element={<CraftTools tools={tools}/>} />
         <Route path='/books' element={<Books books={books}/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
         <Route path='/books/:id' element={<InduvidualBook />} />
-        {/* <Route path='/yarn/:id' element={<InduvidualYarn />} /> */}
-        {/* <Route path='/crafttools/:id' element={<InduvidualTool />} /> */}
+        <Route path='/yarn/:id' element={<InduvidualYarn />} />
+        <Route path='/crafttools/:id' element={<InduvidualTool />} />
       </Routes>
     </div>
   );
