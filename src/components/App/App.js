@@ -5,15 +5,23 @@ import AllProducts from '../../pages/AllProducts'
 import Yarn from '../../pages/Yarn'
 import CraftTools from '../../pages/CraftTools'
 import Books from '../../pages/Books'
-import InduvidualItem from '../../pages/InduvidualBook'
+import InduvidualProduct from '../../pages/InduvidualProduct'
 import Login from '../../pages/Login'
-import InduvidualBook from '../../pages/InduvidualBook'
-import InduvidualYarn from '../../pages/InduvidualYarn'
-import InduvidualTool from '../../pages/InduvidualTool'
+import { useEffect } from 'react'
+import { getAllProducts } from '../apiCalls'
 import Cart from '../../pages/Cart'
 import NavBar from '../NavBar/NavBar'
 
 function App() {
+
+  useEffect(() => {
+    getAllProducts().then(
+      data => {
+        localStorage.setItem('allproducts', JSON.stringify(data.products))
+      }
+    )
+  }, [])
+
   return (
     <div className="App">
       <NavBar />
@@ -25,7 +33,7 @@ function App() {
         <Route path='/books' element={<Books />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/allproducts/:id' element={<InduvidualBook />} />
+        <Route path='/product/:id' element={<InduvidualProduct />} />
         {/* <Route path='/books/:id' element={<InduvidualBook />} />
         <Route path='/yarn/:id' element={<InduvidualYarn />} />
         <Route path='/crafttools/:id' element={<InduvidualTool />} /> */}

@@ -8,7 +8,6 @@ function AllProducts() {
   useEffect(() => {
     getAllProducts().then(
       data => {
-        console.log(data)
         setProducts(data.products)
       }
     )
