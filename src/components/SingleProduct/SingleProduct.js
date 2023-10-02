@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function SingleBook(props) {
+function SingleProduct(props) {
   console.log(props)
   let singleProduct = props.products.map((product) => {
     return (
@@ -18,4 +18,4 @@ function SingleBook(props) {
   )
 }
 
-export default SingleBook
+export default SingleProduct

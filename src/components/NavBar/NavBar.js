@@ -10,6 +10,7 @@ function NavBar() {
           <NavLink to='/'><img className='site-logo' src={require('../images/Salford sheep (1).jpeg')}></img></NavLink>
         </section>
         <section className='topics-container'>
+          <NavLink className='nav-topics' to='allproducts'>All Products</NavLink>
           <NavLink className='nav-topics' to='yarn'>Yarn</NavLink>
           <NavLink className='nav-topics' to='crafttools'>Craft Tools</NavLink>
           <NavLink className='nav-topics' to='books'>Books</NavLink>

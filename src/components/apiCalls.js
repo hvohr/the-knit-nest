@@ -1,5 +1,5 @@
-const getAllBooks = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/books')
+const getSpecificProduct = async (category) => {
+  const response = await fetch(`http://localhost:3001/api/v1/products/${category}`)
   if (!response.ok) {
     throw new Error(response.status)
   }
@@ -7,8 +7,8 @@ const getAllBooks = async () => {
   return data
 }
 
-const getAllCraftTools = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/tools')
+const getAllProducts = async () => {
+  const response = await fetch('http://localhost:3001/api/v1/products')
   if (!response.ok) {
     throw new Error(response.status)
   }
@@ -16,13 +16,4 @@ const getAllCraftTools = async () => {
   return data
 }
 
-const getAllYarn = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/yarn')
-  if (!response.ok) {
-    throw new Error(response.status)
-  }
-  const data = await response.json()
-  return data
-}
-
-export { getAllBooks, getAllCraftTools, getAllYarn}
+export { getAllProducts, getSpecificProduct }
