@@ -50,12 +50,124 @@
   margin-bottom: 25px;
 }
 
+.price-container {
+  display: flex;
+  align-items: center;
+}
+
+.dot-red {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #cf0f0f;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-green {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #2a9635;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-orange {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #ec5d20;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-blue {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #0f4fcf;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-purple {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #8f0fcf;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-yellow {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #f9ed07;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-white {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  border: 1px solid lightgrey;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-black {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.refine-button {
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+.filter-container {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  border: 1px solid rgb(175, 175, 175);
+  margin: 5px;
+}
+
+input[type=checkbox] {
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: #4e2375;
+}
+
+.price-container {
+  display: flex;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.yarn-container {
+  display: flex;
+  font-family: 'Bobby Jones Condensed';
+}
+
 .book-container {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 32px;
-  grid-auto-flow: dense;  
+  grid-auto-flow: dense;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
