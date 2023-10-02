@@ -11,8 +11,8 @@ function InduvidualProduct() {
   return (
     <section className='whole-ind-yarn-container'>
       <div className='go-home-container'>
-        <Link to='/'><img className='go-back' src={require('../components/images/left.png')} /></Link>
-        <h1>Go Home</h1>
+        <Link to={`/${singleCheck().category}`}><img className='go-back' src={require('../components/images/left.png')} /></Link>
+        <h1>Go Back</h1>
       </div>
       <section className='yarn-induvidual-container'>
         <div className='yarn-induvidual-image-container'>

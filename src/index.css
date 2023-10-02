@@ -5,8 +5,11 @@
   font-style: normal;
 }
 
-* {
-  font-family: 'Bobby Jones Soft';
+@font-face {
+  font-family: 'Bobby Jones Condensed';
+  src: url('../public/assets/Bobby\ Jones\ Condensed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {

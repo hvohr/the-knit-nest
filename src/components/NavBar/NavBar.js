@@ -12,7 +12,7 @@ function NavBar() {
         <section className='topics-container'>
           <NavLink className='nav-topics' to='allproducts'>All Products</NavLink>
           <NavLink className='nav-topics' to='yarn'>Yarn</NavLink>
-          <NavLink className='nav-topics' to='crafttools'>Craft Tools</NavLink>
+          <NavLink className='nav-topics' to='tools'>Craft Tools</NavLink>
           <NavLink className='nav-topics' to='books'>Books</NavLink>
         </section>
         <section className='user-container'>

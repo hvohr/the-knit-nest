@@ -15,7 +15,7 @@ function AllProducts() {
 
   return (
     <section>
-      <h1>AllProducts</h1>
+      <h1>All Products</h1>
       <div>
         <SingleProduct products={products} />
       </div>

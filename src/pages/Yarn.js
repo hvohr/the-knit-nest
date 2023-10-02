@@ -21,7 +21,8 @@ function Yarn() {
 
   return (
     <section>
-      <h1>Yarn</h1>
+      <h1 className='page-title'>Yarn</h1>
+      <p className='page-description'>Tailored especially for beginners eager to embark on their crafting journey. Our selection boasts user-friendly textures and shades, ideal for those new to knitting or crocheting. Dive in to discover beginner-friendly yarns that ensure your first projects are both enjoyable and successful.</p>
       <div>
         {yarn.length && <SingleProduct products={yarn} />}
       </div>
