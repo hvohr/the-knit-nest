@@ -1,23 +1,27 @@
-import SingleBook from '../components/SingleBook/SingleBook'
+import SingleProduct from '../components/SingleProduct/SingleProduct'
 import { useEffect, useState } from 'react'
 import { getSpecificProduct } from '../components/apiCalls'
  
 function Books() {
-const [books, setBooks] = useState()
+const [books, setBooks] = useState([])  
+
+function getSpecific() {
+  getSpecificProduct('books').then(
+    data => {
+      setBooks(data)
+    }
+  )
+}
 
   useEffect(() => {
-    getSpecificProduct('books').then(
-      data => {
-        setBooks(data.allproducts)
-      }
-    )
+    getSpecific()
   }, [])
 
   return (
     <section>
       <h1>Books</h1>
       <div>
-        <SingleBook books={books} />
+        {books.length && <SingleProduct products={books} />}
       </div>
     </section>
   )

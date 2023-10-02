@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
+
 function SingleProduct(props) {
-  console.log(props)
+
   let singleProduct = props.products.map((product) => {
     return (
       <Link className='small-book-container' to={`/allproducts/${product.id}`}>

@@ -1,13 +1,29 @@
 
-import SingleYarn from '../components/SingleYarn/SingleYarn'
+import SingleProduct from '../components/SingleProduct/SingleProduct'
+import { useEffect, useState } from 'react'
+import { getSpecificProduct } from '../components/apiCalls'
 
-function Yarn(props) {
+function Yarn() {
+  const [yarn, setYarn] = useState([])
+
+
+  function getSpecific() {
+    getSpecificProduct('yarn').then(
+      data => {
+        setYarn(data)
+      }
+    )
+  }
+
+  useEffect(() => {
+    getSpecific()
+  }, [])
+
   return (
     <section>
       <h1>Yarn</h1>
       <div>
-        {!props.yarn.length && <h1>Loading...</h1>}
-        {props.yarn.length && <SingleYarn yarn={props.yarn} />}
+        {yarn.length && <SingleProduct products={yarn} />}
       </div>
     </section>
   )
