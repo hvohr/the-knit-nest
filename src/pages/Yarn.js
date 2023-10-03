@@ -33,7 +33,9 @@ function Yarn() {
 
   function displayRefined() {
     if (toggle && brandToggle && weightToggle) {
-      return yarn.filter((y) => y.color.includes(allRefine.value && allBrandRefine.value && allWeightRefine.value))
+      return yarn.filter((y) => {
+        return y.color.includes(allRefine.value) && y.brand.includes(allBrandRefine.value) && y.weight.includes(allWeightRefine.value)
+      })
     } else if (!toggle && brandToggle && weightToggle) {
       return yarn.filter((y) => y.brand.includes(allBrandRefine.value && allWeightRefine.value))
     } else if (!brandToggle && toggle && weightToggle) {
@@ -275,9 +277,9 @@ function Yarn() {
         <h1 className='page-title'>Yarn</h1>
         <p className='page-description'>Tailored especially for beginners eager to embark on their crafting journey. Our selection boasts user-friendly textures and shades, ideal for those new to knitting or crocheting. Dive in to discover beginner-friendly yarns that ensure your first projects are both enjoyable and successful.</p>
         <div className='refine-container'>
-          {allRefine.length !== 0 && <p className='refine-container'>Refined by: <span id={allRefine.id} className='refine-values'>{allRefine.value}: {allRefine.name}</span>
-            {allBrandRefine.length !== 0 && <span id={allBrandRefine.id} className='refine-values'>{allBrandRefine.value}: {allBrandRefine.name}</span>}
-            {allWeightRefine.length !== 0 && <span id={allWeightRefine.id} className='refine-values'>{allWeightRefine.value}: {allWeightRefine.name}</span>}
+          {(toggle || brandToggle || weightToggle) && <p className='refine-container'>Refined by: {allRefine.length !== 0 && <span id={allRefine.id} className='refine-values'>{allRefine.name}: {allRefine.value}</span>}
+            {allBrandRefine.length !== 0 && <span id={allBrandRefine.id} className='refine-values'>{allBrandRefine.name}: {allBrandRefine.value}</span>}
+            {allWeightRefine.length !== 0 && <span id={allWeightRefine.id} className='refine-values'>{allWeightRefine.name}: {allWeightRefine.value}</span>}
           </p>}
         </div>
         {(newYarn.length === 0 && (!toggle && !brandToggle && !weightToggle)) && <p>Viewing all {yarn.length} product(s)</p>}
