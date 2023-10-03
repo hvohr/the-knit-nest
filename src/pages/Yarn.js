@@ -5,6 +5,7 @@ import { getSpecificProduct } from '../components/apiCalls'
 
 function Yarn() {
   const [yarn, setYarn] = useState([])
+  const [toggle, setToggle] = useState(false)
   const [allRefine, setAllRefine] = useState([])
   const [showColor, setShowColor] = useState(false)
   const [showBrand, setShowBrand] = useState(false)
@@ -14,7 +15,6 @@ function Yarn() {
   function displayRefined() {
     if (allRefine.length !== 0) {
       allRefine.map((ref) => {
-        console.log(ref)
         let newYarn = yarn.filter((y) => y.color.includes(ref.name) || y.brand.includes(ref.name))
         setYarn(newYarn)
       })
@@ -42,7 +42,7 @@ function Yarn() {
   function handleChecked(event) {
     if (event.target.checked) {
       setAllRefine([...allRefine, event.target])
-    } else {
+    } else if (!event.target.checked) {
       let newDisplay = allRefine.filter((ref) => ref !== event.target)
       setAllRefine(newDisplay)
     }
@@ -50,7 +50,7 @@ function Yarn() {
 
   let refineDisplay = allRefine.map((ref) => {
     return (
-      <h4>{ref.value}: {ref.name}</h4>
+      <span key={Date.now() + allRefine.indexOf(ref)} id ={ref.id} className='refine-values'>{ref.value}: {ref.name}</span>
     )
   })
 
@@ -156,10 +156,12 @@ function Yarn() {
       <section className='small-yarn-container'>
         <h1 className='page-title'>Yarn</h1>
         <p className='page-description'>Tailored especially for beginners eager to embark on their crafting journey. Our selection boasts user-friendly textures and shades, ideal for those new to knitting or crocheting. Dive in to discover beginner-friendly yarns that ensure your first projects are both enjoyable and successful.</p>
-        {allRefine.length !== 0 && refineDisplay}
-        {allRefine.length === 0 && <p>Viewing all {yarn.length} products</p>}
+        <div className='refine-container'>
+          {allRefine.length !== 0 && <p className='refine-container'>Refined by: {refineDisplay}</p>}
+        </div>
+        <p>Viewing all {yarn.length} product(s)</p>
         <div>
-          {yarn.length && <SingleProduct products={yarn} />}
+          {yarn.length !== 0 && <SingleProduct products={yarn} />}
         </div>
       </section>
     </section>

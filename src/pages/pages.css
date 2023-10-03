@@ -172,6 +172,19 @@ input[type=checkbox] {
   grid-row-gap: 5px;
 }
 
+.refine-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.refine-values {
+  border: 2px #4e2375 solid;
+  padding: 10px;
+  width: fit-content;
+  margin: 10px;
+}
+
 .book-image {
   width: 100%;
 }

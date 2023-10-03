@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function SingleProduct(props) {
   let singleProduct = props.products.map((product) => {
     return (
-      <Link className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
+      <Link key={Date.now() + props.products.indexOf(product)} id = {product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
         <img className='book-image' src={product.image} />
         <div>
           <h3 className='book-name'>{product.name}</h3>
