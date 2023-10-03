@@ -26,8 +26,8 @@ function SingleProduct(props) {
   })
   return (
     <section className='book-container'>
-      {(!props.toggle && !props.brandToggle) && singleProduct}
-      {(props.toggle || props.brandToggle) && filteredProduct}
+      {(!props.toggle && !props.brandToggle && !props.weightToggle) && singleProduct}
+      {(props.toggle || props.brandToggle || props.weightToggle) && filteredProduct}
     </section>
   )
 }

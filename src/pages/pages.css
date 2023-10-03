@@ -136,6 +136,10 @@
   border: 1px solid grey;
 }
 
+.refine-container {
+  margin-bottom: 0px;
+}
+
 .filter-container {
   width: 250px;
   display: flex;
