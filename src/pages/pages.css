@@ -1,4 +1,5 @@
 .home-greeting {
+  font-family: 'Bobby Jones Soft';
   font-size: 45px;
   margin-top: 20px;
   margin-bottom: 0px;
@@ -10,43 +11,265 @@
 }
 
 .ideas-title {
+  font-size: 25px;
   color: black;
   margin-top: 0px
 }
 
 .home-ideas {
+  font-family: 'Bobby Jones Condensed';
   height: contain;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+.book-name {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.book-price {
+  font-size: 25px;
+  margin: 20px;
+}
+
+.page-description {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 20px;
+  width: 90%;
+  text-align: left;
+  margin: auto;
+  text-align: center;
+}
+
+.page-title {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+}
+
+.dot-red {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #cf0f0f;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-green {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #2a9635;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-orange {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #ec5d20;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-blue {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #0f4fcf;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-purple {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #8f0fcf;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-yellow {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #f9ed07;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-white {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  border: 1px solid lightgrey;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-black {
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.refine-button {
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid grey;
+}
+
+.refine-container {
+  margin-bottom: 0px;
+}
+
+.filter-container {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  font-size: 17px;
+  border: 1px solid rgb(175, 175, 175);
+  margin: 5px;
+}
+
+input[type=checkbox] {
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: #4e2375;
+}
+
+.price-container {
+  display: flex;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.yarn-container {
+  display: flex;
+  font-family: 'Bobby Jones Condensed';
+}
+
 .book-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  grid-gap: 32px;
+  grid-auto-flow: dense;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+
+.refine-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+}
+
+.refine-values {
+  border: 2px #4e2375 solid;
+  padding: 10px;
+  width: fit-content;
+  margin: 10px;
 }
 
 .book-image {
-  width: 250px;
-  height: 300px;
+  width: 100%;
 }
+
+.yarn-image {
+  width: 250px;
+  height: 250px;
+}
+
+.yarn-induvidual-container {
+  display: flex;
+}
+
+.yarn-induvidual-image-container {
+  width: 50%;
+}
+
+.yarn-induvidual-detail-container {
+  display: flex;
+  font-family: 'Bobby Jones Condensed';
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  margin: 50px;
+  justify-content: flex-start;
+}
+
+.yarn-ind-image {
+  width: 430px;
+  height: 520px;
+  margin: 50px;
+  box-shadow: 5px 5px 5px 5px rgb(213, 209, 209);
+}
+
+.add-to-cart {
+  font-family: 'Bobby Jones Condensed';
+  width: 200px;
+  cursor: pointer;
+  font-size: 25px;
+  background-color: #ab8fca;
+  color: white;
+  border: 2px black solid;
+  border-radius: 20px;
+}
+
+.ind-name {
+  margin: 0px;
+  font-size: 35px;
+}
+
+.ind-brand {
+  margin-top: 0px;
+  font-size: 20px;
+}
+
+.ind-price {
+  font-size: 35px;
+  color: rgb(0, 0, 0);
+  margin-top: 0px;
+}
+
 
 .small-book-container {
   margin: 20px;
-  width: 25%;
-  flex-wrap: wrap;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 3px 3px 3px 3px rgb(213, 209, 209);
+  font-family: 'Bobby Jones Condensed';
   text-decoration: none;
   color: black;
 }
 
 .go-back {
-  height: 50px;
+  height: 45px;
   padding: 10px;
 }
 
 .go-home-container {
+  font-family: 'Bobby Jones Condensed';
   display: flex;
   justify-content: flex-start;
 }

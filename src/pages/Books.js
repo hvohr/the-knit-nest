@@ -1,13 +1,28 @@
+import SingleProduct from '../components/SingleProduct/SingleProduct'
+import { useEffect, useState } from 'react'
+import { getSpecificProduct } from '../components/apiCalls'
+ 
+function Books() {
+const [books, setBooks] = useState([])  
 
-import SingleBook from '../components/SingleBook/SingleBook'
+function getSpecific() {
+  getSpecificProduct('books').then(
+    data => {
+      setBooks(data)
+    }
+  )
+}
 
-function Books(props) {
+  useEffect(() => {
+    getSpecific()
+  }, [])
+
   return (
     <section>
-      <h1>Books</h1>
+      <h1 className='page-title'>Books</h1>
+      <p className='page-description'>Discover a world of knowledge and imagination in our diverse collection of crafting books. Whether you're an avid reader, a curious learner, or searching for the perfect crocheting/knitting project, our carefully curated selection offers something for everyone!</p>
       <div>
-        {!props.books.length && <h1>Loading...</h1>}
-        {props.books.length && <SingleBook books={props.books} />}
+        {books.length && <SingleProduct products={books} />}
       </div>
     </section>
   )

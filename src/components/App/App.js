@@ -1,25 +1,23 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
 import Home from '../../pages/Home'
-import Books from '../../pages/Books'
+import AllProducts from '../../pages/AllProducts'
 import Yarn from '../../pages/Yarn'
-import CraftTools from '../../pages/CraftTools'
-import InduvidualItem from '../../pages/InduvidualBook'
+import CraftTools from '../../pages/Tools'
+import Books from '../../pages/Books'
+import InduvidualProduct from '../../pages/InduvidualProduct'
 import Login from '../../pages/Login'
-import InduvidualBook from '../../pages/InduvidualBook'
+import { useEffect } from 'react'
+import { getAllProducts } from '../apiCalls'
 import Cart from '../../pages/Cart'
 import NavBar from '../NavBar/NavBar'
-import { useState, useEffect } from 'react'
-import { getAllBooks } from '../apiCalls'
 
 function App() {
-  const [books, setBooks] = useState([])
 
   useEffect(() => {
-    getAllBooks().then(
+    getAllProducts().then(
       data => {
-        setBooks(data.books)
-        sessionStorage.setItem('single', JSON.stringify(data.books))
+        localStorage.setItem('allproducts', JSON.stringify(data.products))
       }
     )
   }, [])
@@ -29,12 +27,13 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/allproducts' element={<AllProducts />} />
         <Route path='/yarn' element={<Yarn />} />
-        <Route path='/crafttools' element={<CraftTools />} />
-        <Route path='/books' element={<Books books={books}/>} />
+        <Route path='/tools' element={<CraftTools />} />
+        <Route path='/books' element={<Books />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/books/:id' element={<InduvidualBook />} />
+        <Route path='/:category/:id' element={<InduvidualProduct />} />
       </Routes>
     </div>
   );
