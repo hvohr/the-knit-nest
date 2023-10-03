@@ -5,6 +5,7 @@ import { getSpecificProduct } from '../components/apiCalls'
 
 function Yarn() {
   const [yarn, setYarn] = useState([])
+  const [newYarn, setNewYarn] = useState([])
   const [toggle, setToggle] = useState(false)
   const [allRefine, setAllRefine] = useState([])
   const [showColor, setShowColor] = useState(false)
@@ -13,14 +14,8 @@ function Yarn() {
 
 
   function displayRefined() {
-    if (allRefine.length !== 0) {
-      allRefine.map((ref) => {
-        let newYarn = yarn.filter((y) => y.color.includes(ref.name) || y.brand.includes(ref.name))
-        setYarn(newYarn)
-      })
-    } else {
-      getSpecific()
-    }
+    let find = yarn.filter((y) => y.color.includes(allRefine.value))
+    return find
   }
 
   function getSpecific() {
@@ -33,6 +28,7 @@ function Yarn() {
 
   useEffect(() => {
     displayRefined()
+    setNewYarn(displayRefined())
   }, [allRefine])
 
   useEffect(() => {
@@ -41,18 +37,11 @@ function Yarn() {
 
   function handleChecked(event) {
     if (event.target.checked) {
-      setAllRefine([...allRefine, event.target])
-    } else if (!event.target.checked) {
-      let newDisplay = allRefine.filter((ref) => ref !== event.target)
-      setAllRefine(newDisplay)
+      setAllRefine(event.target)
     }
   }
 
-  let refineDisplay = allRefine.map((ref) => {
-    return (
-      <span key={Date.now() + allRefine.indexOf(ref)} id ={ref.id} className='refine-values'>{ref.value}: {ref.name}</span>
-    )
-  })
+
 
 
   return (
@@ -62,42 +51,45 @@ function Yarn() {
         <button className='refine-button' onClick={() => setShowColor(!showColor)}>↓ Color</button>
         {showColor && <div>
           <div className='price-container'>
-            <input type='checkbox' value='color' onChange={(event) => handleChecked(event)} id='red' name='Red' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              }} value='Red' />
             <span className="dot-red"></span>
             <label htmlFor="red">Red</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' value='color' id='green' onChange={(event) => handleChecked(event)} name='Green' />
+            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Green' />
             <span className="dot-green"></span>
             <label htmlFor="green">Green</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' value='color' id='blue' onChange={(event) => handleChecked(event)} name='Blue' />
+            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Blue' />
             <span className="dot-blue"></span>
             <label htmlFor="blue">Blue</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' value='color' id='yellow' onChange={(event) => handleChecked(event)} name='Yellow' />
+            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Yellow' />
             <span className="dot-yellow"></span>
             <label htmlFor="yellow">Yellow</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' value='color' id='purple' onChange={(event) => handleChecked(event)} name='Purple' />
+            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Purple' />
             <span className="dot-purple"></span>
             <label htmlFor="purple">Purple</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' value='color' id='orange' onChange={(event) => handleChecked(event)} name='Orange' />
+            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Orange' />
             <span className="dot-orange"></span>
             <label htmlFor="orange">Orange</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' value='color' id='white' onChange={(event) => handleChecked(event)} name='White' />
+            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='White' />
             <span className="dot-white"></span>
             <label htmlFor="white">White</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' value='color' id='black' onChange={(event) => handleChecked(event)} name='Black' />
+            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Black' />
             <span className="dot-black"></span>
             <label htmlFor="black">Black</label>
           </div>
@@ -105,50 +97,50 @@ function Yarn() {
         <button className='refine-button' onClick={() => setShowBrand(!showBrand)}>↓ Brand</button>
         {showBrand && <div>
           <div className='price-container'>
-            <input type='checkbox' id='lion-brand' value='brand' onChange={(event) => handleChecked(event)} name='Lion Brand' />
+            <input type='radio' id='lion-brand' value='brand' onChange={(event) => handleChecked(event)} name='Lion Brand' />
             <label htmlFor="lion">Lion Brand</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='bernat' value='brand' onChange={(event) => handleChecked(event)} name='Bernat' />
+            <input type='radio' id='bernat' value='brand' onChange={(event) => handleChecked(event)} name='Bernat' />
             <label htmlFor="bernat">Bernat</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='lily' value='brand' onChange={(event) => handleChecked(event)} name='Lily Sugar/n Cream' />
+            <input type='radio' id='lily' value='brand' onChange={(event) => handleChecked(event)} name='Lily Sugar/n Cream' />
             <label htmlFor="lily">Lily Sugar'n Cream</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='red-heart' value='brand' onChange={(event) => handleChecked(event)} name='Red Heart' />
+            <input type='radio' id='red-heart' value='brand' onChange={(event) => handleChecked(event)} name='Red Heart' />
             <label htmlFor="red-heart">Red Heart</label>
           </div>
         </div>}
         <button className='refine-button' onClick={() => setShowYarnWeight(!showYarnWeight)}>↓ Yarn Weight</button>
         {showYarnWeight && <div>
           <div className='price-container'>
-            <input type='checkbox' id='lace' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Lace' />
+            <input type='radio' id='lace' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Lace' />
             <label htmlFor="lace">0 - Lace</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='super' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Super Fine' />
+            <input type='radio' id='super' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Super Fine' />
             <label htmlFor="super">1 - Super Fine</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='fine' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Fine' />
+            <input type='radio' id='fine' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Fine' />
             <label htmlFor="fine">2 - Fine</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='light' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Light' />
+            <input type='radio' id='light' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Light' />
             <label htmlFor="light">3- Light</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='medium' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Medium' />
+            <input type='radio' id='medium' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Medium' />
             <label htmlFor="medium">4 - Medium</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='bulky' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Bulky' />
+            <input type='radio' id='bulky' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Bulky' />
             <label htmlFor="bulky">5 - Bulky</label>
           </div>
           <div className='price-container'>
-            <input type='checkbox' id='super-bulky' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Super-Bulky' />
+            <input type='radio' id='super-bulky' value='Yarn Weight' onChange={(event) => handleChecked(event)} name='Super-Bulky' />
             <label htmlFor="super-bulky">6 - Super Bulky</label>
           </div>
         </div>}
@@ -157,11 +149,12 @@ function Yarn() {
         <h1 className='page-title'>Yarn</h1>
         <p className='page-description'>Tailored especially for beginners eager to embark on their crafting journey. Our selection boasts user-friendly textures and shades, ideal for those new to knitting or crocheting. Dive in to discover beginner-friendly yarns that ensure your first projects are both enjoyable and successful.</p>
         <div className='refine-container'>
-          {allRefine.length !== 0 && <p className='refine-container'>Refined by: {refineDisplay}</p>}
+          {allRefine.length !== 0 && <p className='refine-container'>Refined by:<span key={allRefine.id} id={allRefine.id} className='refine-values'>{allRefine.value}: {allRefine.name}</span>
+          </p>}
         </div>
         <p>Viewing all {yarn.length} product(s)</p>
         <div>
-          {yarn.length !== 0 && <SingleProduct products={yarn} />}
+          {yarn.length !== 0 && <SingleProduct newYarn={newYarn} toggle={toggle} products={yarn} />}
         </div>
       </section>
     </section>

@@ -204,6 +204,7 @@ input[type=checkbox] {
 
 .yarn-induvidual-detail-container {
   display: flex;
+  font-family: 'Bobby Jones Condensed';
   flex-direction: column;
   align-items: center;
   width: 50%;
@@ -212,13 +213,14 @@ input[type=checkbox] {
 }
 
 .yarn-ind-image {
-  width: 520px;
+  width: 430px;
   height: 520px;
   margin: 50px;
   box-shadow: 5px 5px 5px 5px rgb(213, 209, 209);
 }
 
 .add-to-cart {
+  font-family: 'Bobby Jones Condensed';
   width: 200px;
   cursor: pointer;
   font-size: 25px;
@@ -258,11 +260,12 @@ input[type=checkbox] {
 }
 
 .go-back {
-  height: 50px;
+  height: 45px;
   padding: 10px;
 }
 
 .go-home-container {
+  font-family: 'Bobby Jones Condensed';
   display: flex;
   justify-content: flex-start;
 }
