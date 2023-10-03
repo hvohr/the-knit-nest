@@ -7,6 +7,7 @@ function Yarn() {
   const [yarn, setYarn] = useState([])
   const [newYarn, setNewYarn] = useState([])
   const [toggle, setToggle] = useState(false)
+  const [brandToggle, setBrandToggle] = useState(false)
   const [allRefine, setAllRefine] = useState([])
   const [showColor, setShowColor] = useState(false)
   const [showBrand, setShowBrand] = useState(false)
@@ -14,8 +15,11 @@ function Yarn() {
 
 
   function displayRefined() {
-    let find = yarn.filter((y) => y.color.includes(allRefine.value))
-    return find
+    if (toggle) {
+      return yarn.filter((y) => y.color.includes(allRefine.value))
+    } else {
+      return yarn.filter((y) => y.brand.includes(allRefine.value))
+    }
   }
 
   function getSpecific() {
@@ -27,6 +31,7 @@ function Yarn() {
   }
 
   useEffect(() => {
+    console.log(displayRefined())
     displayRefined()
     setNewYarn(displayRefined())
   }, [allRefine])
@@ -41,9 +46,6 @@ function Yarn() {
     }
   }
 
-
-
-
   return (
     <section className='yarn-container'>
       <section className='filter-container'>
@@ -54,42 +56,71 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
+              setBrandToggle(false)
               }} value='Red' />
             <span className="dot-red"></span>
             <label htmlFor="red">Red</label>
           </div>
           <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Green' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              setBrandToggle(false)
+              }} value='Green' />
             <span className="dot-green"></span>
             <label htmlFor="green">Green</label>
           </div>
           <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Blue' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              setBrandToggle(false)
+              }} value='Blue' />
             <span className="dot-blue"></span>
             <label htmlFor="blue">Blue</label>
           </div>
           <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Yellow' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              setBrandToggle(false)
+              }} value='Yellow' />
             <span className="dot-yellow"></span>
             <label htmlFor="yellow">Yellow</label>
           </div>
           <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Purple' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              setBrandToggle(false)
+              }} value='Purple' />
             <span className="dot-purple"></span>
             <label htmlFor="purple">Purple</label>
           </div>
           <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Orange' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              setBrandToggle(false)
+              }} value='Orange' />
             <span className="dot-orange"></span>
             <label htmlFor="orange">Orange</label>
           </div>
           <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='White' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              setBrandToggle(false)
+              }} value='White' />
             <span className="dot-white"></span>
             <label htmlFor="white">White</label>
           </div>
           <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => handleChecked(event)} value='Black' />
+            <input type='radio' name='color' onChange={(event) => {
+              handleChecked(event)
+              setToggle(true)
+              setBrandToggle(false)
+              }} value='Black' />
             <span className="dot-black"></span>
             <label htmlFor="black">Black</label>
           </div>
@@ -97,19 +128,27 @@ function Yarn() {
         <button className='refine-button' onClick={() => setShowBrand(!showBrand)}>↓ Brand</button>
         {showBrand && <div>
           <div className='price-container'>
-            <input type='radio' id='lion-brand' value='brand' onChange={(event) => handleChecked(event)} name='Lion Brand' />
+            <input type='radio' name='brand' onChange={(event) => {
+              handleChecked(event)
+              setBrandToggle(true)
+              setToggle(false)
+            }} value='Lion Brand' />
             <label htmlFor="lion">Lion Brand</label>
           </div>
           <div className='price-container'>
-            <input type='radio' id='bernat' value='brand' onChange={(event) => handleChecked(event)} name='Bernat' />
+            <input type='radio' name='brand' onChange={(event) => {
+              handleChecked(event)
+              setBrandToggle(true)
+              setToggle(false)
+            }}  value='Bernat' />
             <label htmlFor="bernat">Bernat</label>
           </div>
           <div className='price-container'>
-            <input type='radio' id='lily' value='brand' onChange={(event) => handleChecked(event)} name='Lily Sugar/n Cream' />
+            <input type='radio' name='brand' onChange={(event) => handleChecked(event)} value='Lily Sugar n Cream' />
             <label htmlFor="lily">Lily Sugar'n Cream</label>
           </div>
           <div className='price-container'>
-            <input type='radio' id='red-heart' value='brand' onChange={(event) => handleChecked(event)} name='Red Heart' />
+            <input type='radio' name='brand' onChange={(event) => handleChecked(event)} value='Red Heart' />
             <label htmlFor="red-heart">Red Heart</label>
           </div>
         </div>}
@@ -149,12 +188,14 @@ function Yarn() {
         <h1 className='page-title'>Yarn</h1>
         <p className='page-description'>Tailored especially for beginners eager to embark on their crafting journey. Our selection boasts user-friendly textures and shades, ideal for those new to knitting or crocheting. Dive in to discover beginner-friendly yarns that ensure your first projects are both enjoyable and successful.</p>
         <div className='refine-container'>
-          {allRefine.length !== 0 && <p className='refine-container'>Refined by:<span key={allRefine.id} id={allRefine.id} className='refine-values'>{allRefine.value}: {allRefine.name}</span>
+          {allRefine.length !== 0 && <p className='refine-container'>Refined by: <span id={allRefine.id} className='refine-values'>{allRefine.value}: {allRefine.name}</span>
           </p>}
         </div>
-        <p>Viewing all {yarn.length} product(s)</p>
+        {(newYarn.length === 0 && (!toggle && !brandToggle)) && <p>Viewing all {yarn.length} product(s)</p>}
+        {(newYarn.length !== 0) && <p>Viewing all {newYarn.length} product(s)</p>}
+        {(newYarn.length === 0 && (toggle || brandToggle)) && <p>Viewing all {newYarn.length} product(s)</p>}
         <div>
-          {yarn.length !== 0 && <SingleProduct newYarn={newYarn} toggle={toggle} products={yarn} />}
+          {yarn.length !== 0 && <SingleProduct brandToggle={brandToggle} newYarn={newYarn} toggle={toggle} products={yarn} />}
         </div>
       </section>
     </section>
