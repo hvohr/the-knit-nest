@@ -11,6 +11,18 @@ function Yarn() {
   const [showYarnWeight, setShowYarnWeight] = useState(false)
 
 
+  function displayRefined() {
+    if (allRefine.length !== 0) {
+      allRefine.map((ref) => {
+        console.log(ref)
+        let newYarn = yarn.filter((y) => y.color.includes(ref.name) || y.brand.includes(ref.name))
+        setYarn(newYarn)
+      })
+    } else {
+      getSpecific()
+    }
+  }
+
   function getSpecific() {
     getSpecificProduct('yarn').then(
       data => {
@@ -20,9 +32,12 @@ function Yarn() {
   }
 
   useEffect(() => {
-    getSpecific()
-    console.log(allRefine)
+    displayRefined()
   }, [allRefine])
+
+  useEffect(() => {
+    getSpecific()
+  }, [])
 
   function handleChecked(event) {
     if (event.target.checked) {
