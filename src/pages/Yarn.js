@@ -25,6 +25,7 @@ function Yarn() {
         elements[i].checked = false;
       }
     }
+    setWeightToggle(false)
     setToggle(false)
     setBrandToggle(false)
     setNewYarn([])
@@ -34,18 +35,24 @@ function Yarn() {
   function displayRefined() {
     if (toggle && brandToggle && weightToggle) {
       return yarn.filter((y) => {
-        return y.color.includes(allRefine.value) && y.brand.includes(allBrandRefine.value) && y.weight.includes(allWeightRefine.value)
+        return y.color.includes(allRefine.value) && y.brand.includes(allBrandRefine.value) && y.yarnWeight.includes(allWeightRefine.value)
       })
     } else if (!toggle && brandToggle && weightToggle) {
-      return yarn.filter((y) => y.brand.includes(allBrandRefine.value && allWeightRefine.value))
+      return yarn.filter((y) => {
+        return y.brand.includes(allBrandRefine.value) && y.yarnWeight.includes(allWeightRefine.value)
+      })
     } else if (!brandToggle && toggle && weightToggle) {
-      return yarn.filter((y) => y.brand.includes(allRefine.value && allWeightRefine.value))
-    } else if (!weightToggle && toggle && weightToggle) {
-      return yarn.filter((y) => y.brand.includes(allBrandRefine.value && allRefine.value))
+      return yarn.filter((y) => {
+        return y.color.includes(allRefine.value) && y.yarnWeight.includes(allWeightRefine.value)
+      })
+    } else if (!weightToggle && toggle && brandToggle) {
+      return yarn.filter((y) => {
+        return y.brand.includes(allBrandRefine.value) && y.color.includes(allRefine.value)
+      })
     } else if (!brandToggle && !toggle && weightToggle) {
-      return yarn.filter((y) => y.brand.includes(allWeightRefine.value))
+      return yarn.filter((y) => y.yarnWeight.includes(allWeightRefine.value))
     } else if (!weightToggle && !brandToggle && toggle) {
-      return yarn.filter((y) => y.brand.includes(allRefine.value))
+      return yarn.filter((y) => y.color.includes(allRefine.value))
     } else {
       return yarn.filter((y) => y.brand.includes(allBrandRefine.value))
     }
@@ -62,8 +69,9 @@ function Yarn() {
 
   useEffect(() => {
     displayRefined()
+    console.log(allWeightRefine)
     setNewYarn(displayRefined())
-  }, [allRefine])
+  }, [allRefine, allBrandRefine, allWeightRefine])
 
   useEffect(() => {
     getSpecific()
@@ -90,8 +98,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='Red' />
             <span className="dot-red"></span>
             <label htmlFor="red">Red</label>
@@ -100,8 +106,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='Green' />
             <span className="dot-green"></span>
             <label htmlFor="green">Green</label>
@@ -110,8 +114,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='Blue' />
             <span className="dot-blue"></span>
             <label htmlFor="blue">Blue</label>
@@ -120,8 +122,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='Yellow' />
             <span className="dot-yellow"></span>
             <label htmlFor="yellow">Yellow</label>
@@ -130,8 +130,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='Purple' />
             <span className="dot-purple"></span>
             <label htmlFor="purple">Purple</label>
@@ -140,8 +138,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='Orange' />
             <span className="dot-orange"></span>
             <label htmlFor="orange">Orange</label>
@@ -150,8 +146,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='White' />
             <span className="dot-white"></span>
             <label htmlFor="white">White</label>
@@ -160,8 +154,6 @@ function Yarn() {
             <input type='radio' name='color' onChange={(event) => {
               handleChecked(event)
               setToggle(true)
-              setBrandToggle(false)
-              setWeightToggle(false)
             }} value='Black' />
             <span className="dot-black"></span>
             <label htmlFor="black">Black</label>
@@ -173,8 +165,6 @@ function Yarn() {
             <input type='radio' name='brand' onChange={(event) => {
               handleChecked(event)
               setBrandToggle(true)
-              setToggle(false)
-              setWeightToggle(false)
             }} value='Lion Brand' />
             <label htmlFor="lion">Lion Brand</label>
           </div>
@@ -182,8 +172,6 @@ function Yarn() {
             <input type='radio' name='brand' onChange={(event) => {
               handleChecked(event)
               setBrandToggle(true)
-              setToggle(false)
-              setWeightToggle(false)
             }} value='Bernat' />
             <label htmlFor="bernat">Bernat</label>
           </div>
@@ -191,8 +179,6 @@ function Yarn() {
             <input type='radio' name='brand' onChange={(event) => {
               handleChecked(event)
               setBrandToggle(true)
-              setWeightToggle(false)
-              setToggle(false)
             }} value='Lily Sugar n Cream' />
             <label htmlFor="lily">Lily Sugar'n Cream</label>
           </div>
@@ -200,8 +186,6 @@ function Yarn() {
             <input type='radio' name='brand' onChange={(event) => {
               handleChecked(event)
               setBrandToggle(true)
-              setWeightToggle(false)
-              setToggle(false)
             }} value='Red Heart' />
             <label htmlFor="red-heart">Red Heart</label>
           </div>
@@ -211,64 +195,50 @@ function Yarn() {
           <div className='price-container'>
             <input type='radio' id='lace' name='Yarn Weight' onChange={(event) => {
               handleChecked(event)
-              setBrandToggle(false)
               setWeightToggle(true)
-              setToggle(false)
             }} value='Lace' />
             <label htmlFor="lace">0 - Lace</label>
           </div>
           <div className='price-container'>
             <input type='radio' id='super' name='Yarn Weight' onChange={(event) => {
               handleChecked(event)
-              setBrandToggle(false)
               setWeightToggle(true)
-              setToggle(false)
             }} value='Super Fine' />
             <label htmlFor="super">1 - Super Fine</label>
           </div>
           <div className='price-container'>
             <input type='radio' id='fine' name='Yarn Weight' onChange={(event) => {
               handleChecked(event)
-              setBrandToggle(false)
               setWeightToggle(true)
-              setToggle(false)
             }} value='Fine' />
             <label htmlFor="fine">2 - Fine</label>
           </div>
           <div className='price-container'>
             <input type='radio' id='light' name='Yarn Weight' onChange={(event) => {
               handleChecked(event)
-              setBrandToggle(false)
               setWeightToggle(true)
-              setToggle(false)
             }} value='Light' />
             <label htmlFor="light">3- Light</label>
           </div>
           <div className='price-container'>
             <input type='radio' id='medium' name='Yarn Weight' onChange={(event) => {
               handleChecked(event)
-              setBrandToggle(false)
               setWeightToggle(true)
-              setToggle(false)
             }} value='Medium' />
             <label htmlFor="medium">4 - Medium</label>
           </div>
           <div className='price-container'>
             <input type='radio' id='bulky' name='Yarn Weight' onChange={(event) => {
               handleChecked(event)
-              setBrandToggle(false)
               setWeightToggle(true)
-              setToggle(false)
             }} value='Bulky' />
             <label htmlFor="bulky">5 - Bulky</label>
           </div>
           <div className='price-container'>
             <input type='radio' id='super-bulky' name='Yarn Weight' onChange={(event) => {
               handleChecked(event)
-              setBrandToggle(false)
               setWeightToggle(true)
-              setToggle(false)
-            }} value='Super-Bulky' />
+            }} value='Super Bulky' />
             <label htmlFor="super-bulky">6 - Super Bulky</label>
           </div>
         </div>}
