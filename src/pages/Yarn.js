@@ -69,7 +69,6 @@ function Yarn() {
 
   useEffect(() => {
     displayRefined()
-    console.log(allWeightRefine)
     setNewYarn(displayRefined())
   }, [allRefine, allBrandRefine, allWeightRefine])
 
@@ -91,7 +90,7 @@ function Yarn() {
     <section className='yarn-container'>
       <section className='filter-container'>
         <h3 className='filter-title'>Refine By:</h3>
-        <button onClick={() => unCheckButtons()}>Uncheck All</button>
+        <button className='uncheck-button' onClick={() => unCheckButtons()}>⌀ Uncheck All</button>
         <button className='refine-button' onClick={() => setShowColor(!showColor)}>↓ Color</button>
         {showColor && <div>
           <div className='price-container'>
@@ -233,13 +232,6 @@ function Yarn() {
               setWeightToggle(true)
             }} value='Bulky' />
             <label htmlFor="bulky">5 - Bulky</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' id='super-bulky' name='Yarn Weight' onChange={(event) => {
-              handleChecked(event)
-              setWeightToggle(true)
-            }} value='Super Bulky' />
-            <label htmlFor="super-bulky">6 - Super Bulky</label>
           </div>
         </div>}
       </section>

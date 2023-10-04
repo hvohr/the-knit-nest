@@ -129,11 +129,32 @@
 }
 
 .refine-button {
+  font-family: 'Bobby Jones Condensed';
   margin: 10px;
+  font-size: 20px;
   cursor: pointer;
   border-radius: 20px;
   padding: 10px;
+  border: 2px solid grey;
+  background-color: white;
+}
+
+.refine-button:hover {
+  border: 2px solid #4e2375;
+}
+
+.uncheck-button {
+  font-family: 'Bobby Jones Condensed';
+  margin: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 5px;
   border: 1px solid grey;
+}
+
+.uncheck-button:hover {
+  border: 1px solid #4e2375;;
 }
 
 .refine-container {
@@ -257,10 +278,15 @@ input[type=checkbox] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 3px 3px 3px 3px rgb(213, 209, 209);
+  box-shadow: 3px 3px 3px 3px rgb(223, 220, 220);
   font-family: 'Bobby Jones Condensed';
   text-decoration: none;
   color: black;
+}
+
+
+.small-book-container:hover {
+  box-shadow: 3px 3px 3px 3px rgb(172, 169, 169);
 }
 
 .go-back {
