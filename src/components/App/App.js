@@ -7,20 +7,16 @@ import CraftTools from '../../pages/Tools'
 import Books from '../../pages/Books'
 import InduvidualProduct from '../../pages/InduvidualProduct'
 import Login from '../../pages/Login'
-import { useEffect } from 'react'
-import { getAllProducts } from '../apiCalls'
+import { useState, useEffect } from 'react'
 import Cart from '../../pages/Cart'
 import NavBar from '../NavBar/NavBar'
 
 function App() {
+const [cart, setCart] = useState([])
 
-  useEffect(() => {
-    getAllProducts().then(
-      data => {
-        localStorage.setItem('allproducts', JSON.stringify(data.products))
-      }
-    )
-  }, [])
+// useEffect(() => {
+//   setCart(cart)
+// }, [cart])
 
   return (
     <div className="App">
@@ -31,9 +27,9 @@ function App() {
         <Route path='/yarn' element={<Yarn />} />
         <Route path='/tools' element={<CraftTools />} />
         <Route path='/books' element={<Books />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route path='/cart' element={<Cart cart ={cart}/>} />
         <Route path='/login' element={<Login />} />
-        <Route path='/:category/:id' element={<InduvidualProduct />} />
+        <Route path='/:category/:id' element={<InduvidualProduct cart={cart} setCart={setCart}/>} />
       </Routes>
     </div>
   );

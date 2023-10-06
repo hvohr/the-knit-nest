@@ -1,13 +1,18 @@
 import { useParams, Link } from 'react-router-dom'
 
-function InduvidualProduct() {
+function InduvidualProduct(props) {
   let refreshBook = localStorage.getItem('allproducts')
   let refreshBookArray = JSON.parse(refreshBook)
-  console.log(refreshBookArray)
   const { id } = useParams();
   const singleCheck = () => {
     return refreshBookArray.find((book) => book.id === parseInt(id))
   }
+
+  function handleCart(item) {
+    return props.setCart([...props.cart, item])
+  }
+
+
   return (
     <section className='whole-ind-yarn-container'>
       <div className='go-home-container'>
@@ -23,9 +28,7 @@ function InduvidualProduct() {
           {singleCheck().color !== null && <h3 className='ind-brand'>{singleCheck().brand}</h3>}
           <h4 className='ind-price'>{singleCheck().price}</h4>
           <div>
-            <button onClick="increment()">+</button>
-            <h2 id="counting"></h2>
-            <button onClick="decrement()">-</button>           <button className='add-to-cart'>Add to Cart</button>
+            <button onClick={() => handleCart(singleCheck())} className='add-to-cart'>Add to Cart</button>
           </div>
           {singleCheck().color !== null && <h4 className='ind-color'>{singleCheck().color}</h4>}
           <p className='ind-description'>{singleCheck().description}</p>
