@@ -168,6 +168,75 @@
   font-size: 25px;
 }
 
+.login-kitten {
+  height: 100px;
+  margin-left: 20px;
+}
+
+.login-welcome {
+  font-size: 45px;
+  display: flex;
+  margin: 5px;
+  align-items: center;
+  font-family: 'Bobby Jones Condensed';
+}
+
+form {
+  border: 5px solid #4e2375;
+  padding: 10px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.required {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+input {
+  width: 200px;
+  font-size: 25px;
+  height: 30px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-submit {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 35px;
+  cursor: pointer;
+  background-color:#4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.login-create {
+  font-size: 20px;
+  font-family: 'Bobby Jones Condensed';
+}
+
+.email-container,
+.password-container {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  font-family: 'Bobby Jones Condensed';
+  font-size: 35px;
+  justify-content: space-between;
+  margin: 40px;
+}
+
+.login-top {
+  display: flex;
+  justify-content: center;
+}
+
 .cart-image {
   height: 100px;
   margin: 5px;
