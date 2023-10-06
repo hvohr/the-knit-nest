@@ -2,12 +2,12 @@
 function CartItem(props) {
   let cartList = props.cart.map((cart) => {
     return (
-      <section>
+      <section className='cart-item-container'>
         <img className='cart-delete' src={require('../images/close (1).png')} alt='purple x rounded' />
         <img className='cart-image' src={cart.image} />
-        <h3>{cart.name}</h3>
-        <h3>{cart.quantity}</h3>
-        <h3>{cart.price}</h3>
+        <h3 className='cart-item-info'>{cart.name}</h3>
+        <h3 className='cart-item-info'>{cart.quantity}</h3>
+        <h3 className='cart-item-info'>{cart.price}</h3>
       </section>
     )
   })

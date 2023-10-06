@@ -139,6 +139,40 @@
   background-color: white;
 }
 
+.small-cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-items-container,
+.checkout-container {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.cart-delete {
+  height: 50px;
+  margin: 5px;
+}
+
+.cart-item-container {
+  display: flex;
+  align-items: center;
+  font-family: 'Bobby Jones Condensed';
+}
+
+.cart-item-info {
+  margin: 5px;
+  font-size: 25px;
+}
+
+.cart-image {
+  height: 100px;
+  margin: 5px;
+}
+
 .refine-button:hover {
   border: 2px solid #4e2375;
 }

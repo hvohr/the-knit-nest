@@ -1,5 +1,5 @@
 import CartItem from '../components/CartItem/CartItem'
-
+import { Link } from 'react-router-dom'
 
 function Cart(props) {
   let totalPrice = props.cart.reduce((acc, cur) => {
@@ -9,15 +9,18 @@ function Cart(props) {
   }, 0)
 
   return (
-    <section>
-      <h1>Shopping Cart</h1>
-      <section>
-        <h1>Items</h1>
-        <CartItem cart={props.cart} />
-      </section>
-      <section>
-        <h1>Checkout</h1>
-        <h2>${totalPrice}</h2>
+    <section className='big-cart-container'>
+      <h1 className='cart-title'>Shopping Cart</h1>
+      {!props.loggedIn && <h1 className='cart-login-warning'>Login <Link className='login-link' to='/login'>here</Link> or <Link className='login-link' to='/createaccount'>create an account</Link> to save your cart!</h1>}
+      <section className='small-cart-container'>
+        <section className='cart-items-container'>
+          <h1>Items</h1>
+          <CartItem cart={props.cart} />
+        </section>
+        <section className='checkout-container'>
+          <h1>Checkout</h1>
+          <h2>${totalPrice}</h2>
+        </section>
       </section>
     </section>
   )
