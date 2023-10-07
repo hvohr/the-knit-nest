@@ -17,7 +17,7 @@ function Login() {
         </div>
         <div>
           <button className='login-submit'>Log in</button>
-          <h2 className='login-create'>Not a member with us? <Link to='/createaccount'>Create an account</Link></h2>
+          <h2 className='login-create'>Not a member with us? <Link className='create-account-link' to='/createaccount'>Create an account here</Link></h2>
         </div>
       </form>
     </section>

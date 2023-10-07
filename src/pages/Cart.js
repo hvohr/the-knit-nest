@@ -11,7 +11,7 @@ function Cart(props) {
   return (
     <section className='big-cart-container'>
       <h1 className='cart-title'>Shopping Cart</h1>
-      {!props.loggedIn && <h1 className='cart-login-warning'>Login <Link className='login-link' to='/login'>here</Link> or <Link className='login-link' to='/createaccount'>create an account</Link> to save your cart!</h1>}
+      {!props.loggedIn && <h1 className='cart-login-warning'>Login <Link className='login-link' to='/login'>here</Link> or <Link className='create-account-link' to='/createaccount'>create an account</Link> to save your cart!</h1>}
       <section className='small-cart-container'>
         <section className='cart-items-container'>
           <h1>Items</h1>
