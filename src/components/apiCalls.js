@@ -16,7 +16,7 @@ const getAllProducts = async () => {
   return data
 }
 
-const getAllUsers = async () => {
+const getUsers = async () => {
   const response = await fetch('http://localhost:3001/api/v1/users')
   if (!response.ok) {
     throw new Error(response.status)
@@ -25,4 +25,19 @@ const getAllUsers = async () => {
   return data
 }
 
-export { getAllProducts, getSpecificProduct }
+const postUser = async (newUser) => {
+  try {
+    const response = await fetch("http://localhost:3001/api/v1/users", {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error(`There appears to be an error ${error.statusText}`);
+  }
+}
+
+export { getAllProducts, getSpecificProduct, postUser, getUsers }

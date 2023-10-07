@@ -12,14 +12,31 @@ import { useState } from 'react'
 import Cart from '../../pages/Cart'
 import CreateAccount from '../../pages/CreateAccount'
 import NavBar from '../NavBar/NavBar'
+import { postUser, getUsers } from '../apiCalls'
+import { useEffect } from 'react'
 
 function App() {
-const [cart, setCart] = useState([])
-const [loggedIn, setLoggedIn] = useState(false)
+  const [cart, setCart] = useState([])
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [users, setUsers] = useState([])
+  const [currentUser, setCurrentUser] = useState([])
+  const [allUsers, setAllUsers] = useState([])
 
-// useEffect(() => {
-//   setCart(cart)
-// }, [cart])
+
+  const submitUser = (newUser) => {
+    setCurrentUser(newUser)
+    const newUserList = { userID: newUser.userID, name: newUser.name, email: newUser.email, password: newUser.password, cart:[]}
+    postUser(newUser).then(data => {
+      setUsers([...users, newUserList])
+      setLoggedIn(true)
+    })
+  }
+  useEffect(() => {
+    getUsers().then(
+      data => {
+        setAllUsers(data.users)
+      })
+  }, [users])
 
   return (
     <div className="App">
@@ -30,11 +47,11 @@ const [loggedIn, setLoggedIn] = useState(false)
         <Route path='/yarn' element={<Yarn />} />
         <Route path='/tools' element={<CraftTools />} />
         <Route path='/books' element={<Books />} />
-        <Route path='/cart' element={<Cart loggedIn ={loggedIn} cart ={cart}/>} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/createaccount' element={<CreateAccount />} />
-        <Route path='/account' element={<AccountInfo />} />
-        <Route path='/:category/:id' element={<InduvidualProduct cart={cart} setCart={setCart}/>} />
+        <Route path='/cart' element={<Cart loggedIn={loggedIn} cart={cart} />} />
+        <Route path='/login' element={<Login allUsers={allUsers} />} />
+        <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
+        <Route path='/account' element={<AccountInfo currentUser={currentUser}/>} />
+        <Route path='/:category/:id' element={<InduvidualProduct cart={cart} setCart={setCart} />} />
       </Routes>
     </div>
   );
