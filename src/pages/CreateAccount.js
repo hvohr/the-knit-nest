@@ -7,6 +7,8 @@ function CreateAccount(props) {
   const [password1, setPassword] = useState('')
   const [prevAccount, setPrevAccount] = useState(false)
   const [alert, setAlert] = useState(false)
+  const [newUser, setNewUser] = useState(false)
+  const [currentUser, setCurrentUser] = useState('')
 
   function checkDuplicateAccount(event) {
     props.allUsers.map((user) => {
@@ -22,7 +24,7 @@ function CreateAccount(props) {
   }
 
   function handleEmpty() {
-    setAlert (true)
+    setAlert(true)
   }
 
   function checkFormCompletion() {
@@ -42,6 +44,7 @@ function CreateAccount(props) {
       password: password1,
       cart: []
     }
+    setCurrentUser(userInfo)
     props.submitUser(userInfo)
     setPrevAccount(false)
     setEmail('')
@@ -54,7 +57,7 @@ function CreateAccount(props) {
       <div className='login-top'>
         <h1 className='login-welcome'>Welcome to The Knit Nest<img className='login-kitten' src={require('../components/images/yarn-ball.png')} /></h1>
       </div>
-      <form>
+      {!newUser && <form>
         {prevAccount && <p className='login-suggest'>Email already exists, <Link className='login-link' to='/login'>login </Link>instead?</p>}
         <div className='email-container'>
           <label>Name<span className='required'>*</span></label>
@@ -85,6 +88,7 @@ function CreateAccount(props) {
           <button onClick={(event) => {
             if (checkFormCompletion()) {
               setAlert(false)
+              setNewUser(true)
               checkDuplicateAccount(event)
               event.preventDefault();
             } else {
@@ -93,7 +97,11 @@ function CreateAccount(props) {
             }
           }} className='login-submit'>Create Account</button>
         </div>
-      </form>
+      </form>}
+     {newUser && <section>
+        <h1>You can successfully created an account! Welcome {currentUser.name}!</h1>
+        <Link to='/' className='login-link'>Return Home</Link>
+      </section>}
     </section>
   )
 }

@@ -19,24 +19,43 @@ function App() {
   const [cart, setCart] = useState([])
   const [loggedIn, setLoggedIn] = useState(false)
   const [users, setUsers] = useState([])
-  const [currentUser, setCurrentUser] = useState([])
+  const [currentUser, setCurrentUser] = useState('')
   const [allUsers, setAllUsers] = useState([])
-
 
   const submitUser = (newUser) => {
     setCurrentUser(newUser)
-    const newUserList = { userID: newUser.userID, name: newUser.name, email: newUser.email, password: newUser.password, cart:[]}
+    const newUserList = { userID: newUser.userID, name: newUser.name, email: newUser.email, password: newUser.password, cart: [] }
+    sessionStorage.setItem('currentUser', newUserList.userID)
     postUser(newUser).then(data => {
       setUsers([...users, newUserList])
       setLoggedIn(true)
     })
   }
+
+  useEffect(() => {
+    setUsers(allUsers)
+  }, [allUsers])
+
   useEffect(() => {
     getUsers().then(
       data => {
         setAllUsers(data.users)
       })
+  }, [loggedIn])
+
+  useEffect(() => {
+    findCurrentUser()
   }, [users])
+
+  function findCurrentUser() {
+    let currentUserID = sessionStorage.getItem('currentUser')
+    if (currentUserID !== '') {
+      let currentFind = allUsers.filter((user) => {
+        return Number(user.userID) === Number(currentUserID)
+      })
+      setCurrentUser(currentFind)
+    }
+  }
 
   return (
     <div className="App">
@@ -47,10 +66,10 @@ function App() {
         <Route path='/yarn' element={<Yarn />} />
         <Route path='/tools' element={<CraftTools />} />
         <Route path='/books' element={<Books />} />
-        <Route path='/cart' element={<Cart loggedIn={loggedIn} cart={cart} />} />
+        <Route path='/cart' element={<Cart currentUser={currentUser} loggedIn={loggedIn} cart={cart} />} />
         <Route path='/login' element={<Login allUsers={allUsers} />} />
         <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
-        <Route path='/account' element={<AccountInfo currentUser={currentUser}/>} />
+        <Route path='/account' element={<AccountInfo setCurrentUser={setCurrentUser} currentUser={currentUser}/>} />
         <Route path='/:category/:id' element={<InduvidualProduct cart={cart} setCart={setCart} />} />
       </Routes>
     </div>
