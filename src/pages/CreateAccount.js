@@ -77,7 +77,7 @@ function CreateAccount(props) {
         </div>
         <div className='email-container'>
           <label>Password<span className='required'>*</span></label>
-          <input type='email' value={password1} name='login-password' onChange={(event) => {
+          <input type='password' value={password1} name='login-password' onChange={(event) => {
             if (event.target.value !== '') {
               setPassword(event.target.value)
             }

@@ -43,9 +43,10 @@ function App() {
       })
   }, [loggedIn])
 
+
   useEffect(() => {
     findCurrentUser()
-  }, [users])
+  }, [users, loggedIn])
 
   function findCurrentUser() {
     let currentUserID = sessionStorage.getItem('currentUser')
@@ -67,7 +68,7 @@ function App() {
         <Route path='/tools' element={<CraftTools />} />
         <Route path='/books' element={<Books />} />
         <Route path='/cart' element={<Cart currentUser={currentUser} loggedIn={loggedIn} cart={cart} />} />
-        <Route path='/login' element={<Login allUsers={allUsers} />} />
+        <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setCurrentUser={setCurrentUser} allUsers={allUsers} />} />
         <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
         <Route path='/account' element={<AccountInfo setCurrentUser={setCurrentUser} currentUser={currentUser}/>} />
         <Route path='/:category/:id' element={<InduvidualProduct cart={cart} setCart={setCart} />} />

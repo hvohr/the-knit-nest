@@ -223,7 +223,9 @@ p.first {
   color: #4e2375;
 }
 
-input[type="email"] {
+input[type="email"],
+input[type="password"]
+ {
   width: 250px;
   font-size: 25px;
   height: 30px;
