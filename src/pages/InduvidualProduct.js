@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 
 function InduvidualProduct(props) {
+  console.log(props)
   let refreshBook = localStorage.getItem('allproducts')
   let refreshBookArray = JSON.parse(refreshBook)
   const { id } = useParams();
@@ -16,8 +17,8 @@ function InduvidualProduct(props) {
   function postUserCart() {
     if (props.loggedIn) {
       const productInfo = {
-        id: singleCheck().id,
-        userID: props.currentUser.userID
+        id: singleCheck().id
+        // userID: props.currentUser.userID
       }
       props.submitProduct(productInfo)
     }
