@@ -9,9 +9,19 @@ function InduvidualProduct(props) {
   }
 
   function handleCart(item) {
-    return props.setCart([...props.cart, item])
+    return props.setCart([...props.cart, item.id])
   }
 
+
+  function postUserCart() {
+    if (props.loggedIn) {
+      const productInfo = {
+        id: singleCheck().id,
+        userID: props.currentUser.userID
+      }
+      props.submitProduct(productInfo)
+    }
+  }
 
   return (
     <section className='whole-ind-yarn-container'>
@@ -28,7 +38,10 @@ function InduvidualProduct(props) {
           {singleCheck().color !== null && <h3 className='ind-brand'>{singleCheck().brand}</h3>}
           <h4 className='ind-price'>{singleCheck().price}</h4>
           <div>
-            <button onClick={() => handleCart(singleCheck())} className='add-to-cart'>Add to Cart</button>
+            <button onClick={() => {
+              handleCart(singleCheck())
+              postUserCart()
+            }} className='add-to-cart'>Add to Cart</button>
           </div>
           {singleCheck().color !== null && <h4 className='ind-color'>{singleCheck().color}</h4>}
           <p className='ind-description'>{singleCheck().description}</p>

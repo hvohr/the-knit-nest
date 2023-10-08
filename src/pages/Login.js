@@ -45,7 +45,7 @@ function Login(props) {
         </div>
       </form>}
       {props.loggedIn && <section>
-        <h1>You can successfully created an account! Welcome {currentUser.name}!</h1>
+        <h1>You can successfully logged into your account! Welcome {currentUser.name}!</h1>
         <Link to='/' className='login-link'>Return Home</Link>
       </section>}
     </section>

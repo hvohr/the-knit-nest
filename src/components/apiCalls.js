@@ -10,7 +10,7 @@ const getSpecificProduct = async (category) => {
 const getAllProducts = async () => {
   const response = await fetch('http://localhost:3001/api/v1/products')
   if (!response.ok) {
-    throw new Error(response.status)
+    throw new Error(response.statusText)
   }
   const data = await response.json()
   return data
@@ -19,7 +19,7 @@ const getAllProducts = async () => {
 const getUsers = async () => {
   const response = await fetch('http://localhost:3001/api/v1/users')
   if (!response.ok) {
-    throw new Error(response.status)
+    throw new Error(response.statusText)
   }
   const data = await response.json()
   return data
@@ -40,4 +40,19 @@ const postUser = async (newUser) => {
   }
 }
 
-export { getAllProducts, getSpecificProduct, postUser, getUsers }
+const postCart = async (item) => {
+  try {
+    const response = await fetch("http://localhost:3001/api/v1/userCart", {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error(`There appears to be an error ${error.statusText}`);
+  }
+}
+
+export { getAllProducts, getSpecificProduct, postUser, getUsers, postCart }

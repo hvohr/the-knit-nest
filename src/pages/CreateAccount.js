@@ -88,6 +88,7 @@ function CreateAccount(props) {
           <button onClick={(event) => {
             if (checkFormCompletion()) {
               setAlert(false)
+              props.setLoggedIn(true)
               setNewUser(true)
               checkDuplicateAccount(event)
               event.preventDefault();

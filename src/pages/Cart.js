@@ -2,7 +2,8 @@ import CartItem from '../components/CartItem/CartItem'
 import { Link } from 'react-router-dom'
 
 function Cart(props) {
-  let totalPrice = props.cart.reduce((acc, cur) => {
+  console.log(props)
+  let totalPrice = props.postedCart.reduce((acc, cur) => {
     let noSymbol = cur.price.split('$')
     acc += Number(noSymbol[1])
     return acc
@@ -15,7 +16,7 @@ function Cart(props) {
       <section className='small-cart-container'>
         <section className='cart-items-container'>
           <h1>Items</h1>
-          <CartItem cart={props.cart} />
+          <CartItem cart={props.postedCart} />
         </section>
         <section className='checkout-container'>
           <h1>Checkout</h1>
