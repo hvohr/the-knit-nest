@@ -92,6 +92,7 @@ function CreateAccount(props) {
               setNewUser(true)
               checkDuplicateAccount(event)
               event.preventDefault();
+              sessionStorage.setItem('loggedIn', true)
             } else {
               event.preventDefault();
               handleEmpty()

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 function Login(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [log, setLog] = useState(false)
   const [currentUser, setCurrentUser] = useState('')
   const [noPrevUser, setNoPrevUser] = useState(false)
 
@@ -19,14 +20,21 @@ function Login(props) {
     }
   }
 
-  let loggedIn = sessionStorage.getItem('loggedIn')
+  useEffect(() => {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn === 'false') {
+      setLog(false)
+    } else {
+      setLog(true)
+    }
+  }, [])
 
   return (
     <section className='login-container'>
       <div className='login-top'>
         <h1 className='login-welcome'>Welcome Back to The Knit Nest<img className='login-kitten' src={require('../components/images/cat (1).png')} /></h1>
       </div>
-     {!loggedIn && <form>
+     {!log && <form>
         <div className='email-container'>
           <label>Email<span className='required'>*</span></label>
           <input type='email' onChange={(event) => setEmail(event.target.value)} name='login-email' className='login-email' />
@@ -39,14 +47,15 @@ function Login(props) {
           <button onClick={(event) => {
             event.preventDefault()
             userList()
+            sessionStorage.setItem('loggedIn', true)
           }
           } className='login-submit'>Log in</button>
           {noPrevUser && <p>Not a valid account in our system!</p>}
           <h2 className='login-create'>Not a member with us? <Link className='create-account-link' to='/createaccount'>Create an account here</Link></h2>
         </div>
       </form>}
-      {loggedIn && <section>
-        <h1>You can successfully logged into your account! Welcome {currentUser.name}!</h1>
+      {log === true && <section>
+        <h1>You have successfully logged into your account! Welcome {currentUser.name}!</h1>
         <Link to='/' className='login-link'>Return Home</Link>
       </section>}
     </section>
