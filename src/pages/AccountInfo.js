@@ -1,27 +1,34 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { getUsers } from '../components/apiCalls'
+
 
 function AccountInfo(props) {
+  console.log(props)
   const [currentUser, setCurrentUser] = useState('')
-
+  const [users, setUsers] = useState([])
+ 
   function findUser() {
     let currentUserID = sessionStorage.getItem('currentUser')
-    let allUsers = sessionStorage.getItem('allUsers')
-    let newUsers = JSON.parse(allUsers)
-    console.log('allUsers', allUsers)
-    console.log('newUsers', newUsers)
-    if (currentUserID) {
-      let currentFind = newUsers.filter((user) => {
+    if (currentUserID && users.length) {
+      let currentFind = users.filter((user) => {
         return Number(user.userID) === Number(currentUserID)
       })
       setCurrentUser(currentFind)
     } 
   }
 
+  useEffect(() => {
+    getUsers().then(
+      data => {
+        setUsers(data.users)
+      })
+  }, [])
+
 
   useEffect(() => {
     findUser()
-  }, [])
+  }, [users])
 
   if (!currentUser) {
     return (
@@ -40,7 +47,7 @@ function AccountInfo(props) {
         <h2>Password: {currentUser[0].password}</h2>
         <button onClick={() => {
           setCurrentUser('')
-          props.setLoggedIn(false)
+          sessionStorage.setItem('loggedIn', false)
           sessionStorage.setItem('currentUser', '')
         }} className='login-submit'>Log out</button>
       </section>

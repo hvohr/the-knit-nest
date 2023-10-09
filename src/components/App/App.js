@@ -8,20 +8,19 @@ import Books from '../../pages/Books'
 import AccountInfo from '../../pages/AccountInfo'
 import InduvidualProduct from '../../pages/InduvidualProduct'
 import Login from '../../pages/Login'
-import { useState } from 'react'
 import Cart from '../../pages/Cart'
 import CreateAccount from '../../pages/CreateAccount'
 import NavBar from '../NavBar/NavBar'
 import { postUser, getUsers, postCart, getAllProducts } from '../apiCalls'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   const [cart, setCart] = useState([])
   const [postedCart, setPostedCart] = useState([])
-  const [loggedIn, setLoggedIn] = useState(false)
   const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState('')
   const [allUsers, setAllUsers] = useState([])
+  const [singleCheck, setSingleCheck] = useState('')
   const [allProducts, setAllProducts] = useState([])
 
   const submitUser = (newUser) => {
@@ -30,81 +29,87 @@ function App() {
     sessionStorage.setItem('currentUser', newUserList.userID)
     postUser(newUser).then(data => {
       setUsers([...users, newUserList])
-      setLoggedIn(true)
     })
   }
+
+
+
 
   useEffect(() => {
     getAllProducts().then(
       data => {
         setAllProducts(data.products)
+        sessionStorage.setItem('allproducts', JSON.stringify(data.products))
       }
     )
   }, [])
 
-  // useEffect(() => {
-  //   displayLoginCart()
-  // }, [currentUser])
-
   useEffect(() => {
-    setUsers(allUsers)
+    let currentUserID = sessionStorage.getItem('currentUser')
+    if (currentUserID) {
+      sessionStorage.setItem('loggedIn', true)
+    } else {
+      sessionStorage.setItem('loggedIn', false)
+    }
   }, [])
+
 
   useEffect(() => {
     getUsers().then(
       data => {
         setAllUsers(data.users)
-        sessionStorage.setItem('allUsers', JSON.stringify(data.users))
       })
   }, [users])
 
 
-
   useEffect(() => {
     let currentUserID = sessionStorage.getItem('currentUser')
-    if (currentUserID) {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn) {
       let currentFind = allUsers.filter((user) => {
         return Number(user.userID) === Number(currentUserID)
       })
+      setCart([...cart, currentFind.cart])
       setCurrentUser(currentFind)
-      setLoggedIn(true)
     }
-  }, [loggedIn])
+  }, [singleCheck])
+
+  useEffect(() => {
+    console.log(cart)
+    console.log('posted', postedCart)
+  }, [cart])
 
   useEffect(() => {
     submitProduct()
-  }, [loggedIn])
+  }, [singleCheck])
 
-  useEffect(() => {
-    filterCart()
-  }, [cart])
 
   function submitProduct(item) {
-    if (currentUser) {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn) {
       postCart(item).then(data => {
         setCart([...cart, data])
       })
     }
   }
 
+  useEffect(() => {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn) {
+      let newCart = cart.filter(char => !isNaN(parseInt(char)))
+      sessionStorage.setItem('cart', JSON.stringify(newCart))
+    } else {
+      sessionStorage.setItem('cart', '')
+    }
+  }, [cart, postedCart])
 
-  function filterCart() {
+
+  useEffect(() => {
     let cartFilter = allProducts.filter((product) => {
       return cart.includes(product.id)
     })
     setPostedCart(cartFilter)
-  }
-
-  function displayLoginCart() {
-    if (currentUser) {
-      return allUsers.find((user) => {
-        if (currentUser.userID === user.userID) {
-          return setCart([...cart, user.cart])
-        }
-      })
-    }
-  }
-
+  }, [cart])
 
 
   return (
@@ -116,11 +121,11 @@ function App() {
         <Route path='/yarn' element={<Yarn />} />
         <Route path='/tools' element={<CraftTools />} />
         <Route path='/books' element={<Books />} />
-        <Route path='/cart' element={<Cart currentUser={currentUser} loggedIn={loggedIn} postedCart={postedCart} />} />
-        <Route path='/login' element={<Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} setCurrentUser={setCurrentUser} allUsers={allUsers} />} />
-        <Route path='/createaccount' element={<CreateAccount setLoggedIn={setLoggedIn} allUsers={allUsers} submitUser={submitUser} />} />
-        <Route path='/account' element={<AccountInfo setLoggedIn={setLoggedIn} allUsers={allUsers} />} />
-        <Route path='/:category/:id' element={<InduvidualProduct currentUser={currentUser} loggedIn={loggedIn} cart={cart} setCart={setCart} />} />
+        <Route path='/cart' element={<Cart cart={cart} postedCart={postedCart} />} />
+        <Route path='/login' element={<Login setCurrentUser={setCurrentUser} allUsers={allUsers} />} />
+        <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
+        <Route path='/account' element={<AccountInfo allUsers={allUsers} />} />
+        <Route path='/:category/:id' element={<InduvidualProduct setChange={setSingleCheck} currentUser={currentUser} cart={cart} submitProduct={submitProduct} setCart={setCart} />} />
       </Routes>
     </div>
   );

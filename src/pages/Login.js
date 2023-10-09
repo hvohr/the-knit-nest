@@ -14,18 +14,19 @@ function Login(props) {
       setCurrentUser(find1)
       setNoPrevUser(false)
       sessionStorage.setItem('currentUser', find1.userID)
-      props.setLoggedIn(true)
     } else {
       setNoPrevUser(true)
     }
   }
+
+  let loggedIn = sessionStorage.getItem('loggedIn')
 
   return (
     <section className='login-container'>
       <div className='login-top'>
         <h1 className='login-welcome'>Welcome Back to The Knit Nest<img className='login-kitten' src={require('../components/images/cat (1).png')} /></h1>
       </div>
-     {!props.loggedIn && <form>
+     {!loggedIn && <form>
         <div className='email-container'>
           <label>Email<span className='required'>*</span></label>
           <input type='email' onChange={(event) => setEmail(event.target.value)} name='login-email' className='login-email' />
@@ -44,7 +45,7 @@ function Login(props) {
           <h2 className='login-create'>Not a member with us? <Link className='create-account-link' to='/createaccount'>Create an account here</Link></h2>
         </div>
       </form>}
-      {props.loggedIn && <section>
+      {loggedIn && <section>
         <h1>You can successfully logged into your account! Welcome {currentUser.name}!</h1>
         <Link to='/' className='login-link'>Return Home</Link>
       </section>}

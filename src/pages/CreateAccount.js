@@ -44,6 +44,7 @@ function CreateAccount(props) {
       password: password1,
       cart: []
     }
+    sessionStorage.setItem('currentUser', userInfo.userID)
     setCurrentUser(userInfo)
     props.submitUser(userInfo)
     setPrevAccount(false)
@@ -88,7 +89,6 @@ function CreateAccount(props) {
           <button onClick={(event) => {
             if (checkFormCompletion()) {
               setAlert(false)
-              props.setLoggedIn(true)
               setNewUser(true)
               checkDuplicateAccount(event)
               event.preventDefault();
