@@ -12,6 +12,7 @@ function Cart(props) {
   const [success, setSuccess] = useState('')
   const [valid, setValid] = useState(false)
   const [invalid, setInvalid] = useState(false)
+  const [change, setChange] = useState(false)
 
   function displayCart() {
     let loggedIn = sessionStorage.getItem('loggedIn')
@@ -33,11 +34,10 @@ function Cart(props) {
     } else {
       setSuccess(false)
     }
-  }, [])
+  }, [promo, change])
 
   useEffect(() => {
     displayCart()
-    console.log(users)
   }, [products, users])
 
 
@@ -46,7 +46,7 @@ function Cart(props) {
       data => {
         setUsers(data.users)
       })
-  }, [log])
+  }, [])
 
   function displayProduct2() {
     let currentUserID = sessionStorage.getItem('currentUser')
@@ -68,13 +68,15 @@ function Cart(props) {
 
   function checkPromo(event) {
     event.preventDefault()
-    if (promo === 'FALL23' || promo === 'fall23') {
+    if (promo === 'FALL23' || promo === 'fall23' || promo === 'Fall23') {
       setValid(true)
+      setChange(false)
       sessionStorage.setItem('success', 'true')
       setInvalid(false)
       setPromo('')
     } else {
       setPromo('')
+      setChange(true)
       setValid(false)
       setInvalid(true)
     }
@@ -102,26 +104,29 @@ function Cart(props) {
     <section className='big-cart-container'>
       <h1 className='cart-title'>Shopping Cart</h1>
       {!log && <h1 className='cart-login-warning'>Login <Link className='login-link' to='/login'>here</Link> or <Link className='create-account-link' to='/createaccount'>create an account</Link> to save your cart!</h1>}
-        <section className='small-cart-container'>
-          <section className='cart-items-container'>
-            <h1 className='checkout-title'>Items</h1>
-            <CartItem finalCart={finalCart} />
+      <section className='small-cart-container'>
+        <section className='cart-items-container'>
+          <h1 className='checkout-title'>Items</h1>
+          <CartItem finalCart={finalCart} />
+        </section>
+        <section className='checkout-container'>
+          <section className='cost-container'>
+            <h1 className='checkout-title'>Checkout</h1>
+            {!success && <h2 className='checkout-title'>${totalPrice()}</h2>}
+            {success && <h2 className='checkout-title'>${totalPrice()} - 20% = <span className='new-price'>${newPrice()}</span></h2>}
           </section>
-          <section className='checkout-container'>
-            <section className='cost-container'>
-              <h1 className='checkout-title'>Checkout</h1>
-              {!success && <h2 className='checkout-title'>${totalPrice()}</h2>}
-              {success && <h2 className='checkout-title'>${totalPrice()} - 20% = <span className='new-price'>${newPrice()}</span></h2>}
-            </section>
-            <section className='promo-container'>
-              <span className='promo-input'>Promo Code:<input type='text' onChange={(event) => setPromo(event.target.value)} value={promo} className='promo' /></span><button className='promo-button' onClick={(event) => checkPromo(event)}>Submit</button>
-            </section>
-            <section>
-              {invalid && <h1 className='empty-suggest'>Not a valid promo code</h1>}
-              {success && <h1 className='success-promo'>Success! Fall23 has been applied to your cart!</h1>}
-            </section>
+          <section className='promo-container'>
+            <span className='promo-input'>Promo Code:<input type='text' onChange={(event) => setPromo(event.target.value)} value={promo} className='promo' /></span><button className='promo-button' onClick={(event) => checkPromo(event)}>Submit</button>
+          </section>
+          <section>
+            {invalid && <h1 className='empty-suggest'>Not a valid promo code</h1>}
+            {success && <h1 className='success-promo'>Success! Fall23 has been applied to your cart!<button onClick={() => {
+              sessionStorage.setItem('success', 'false')
+              setChange(true)
+            }} className='remove-promo'>Remove</button></h1>}
           </section>
         </section>
+      </section>
     </section>
   )
 }

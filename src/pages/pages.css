@@ -167,6 +167,17 @@
   align-items:flex-start;
 }
 
+.remove-promo {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 15px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
 .cart-items-container,
 .checkout-container {
   margin: 20px;
