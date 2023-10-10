@@ -8,6 +8,10 @@ function Cart(props) {
   const [finalCart, setFinalCart] = useState([])
   const [users, setUsers] = useState([])
   const [log, setLog] = useState(false)
+  const [promo, setPromo] = useState('')
+  const [success, setSuccess] = useState(false)
+  const [valid, setValid] = useState(false)
+  const [invalid, setInvalid] = useState(false)
 
   function displayCart() {
     let loggedIn = sessionStorage.getItem('loggedIn')
@@ -52,6 +56,26 @@ function Cart(props) {
       })
   }, [])
 
+  function checkPromo(event) {
+    event.preventDefault()
+    if (promo === 'FALL23' || promo === 'fall23') {
+      setValid(true)
+      setSuccess(true)
+      setInvalid(false)
+      setPromo('')
+    } else {
+      setPromo('')
+      setValid(false)
+      setInvalid(true)
+    }
+  }
+
+  let newPrice = () => {
+    let discount = totalPrice() * 0.2
+    return totalPrice()- discount
+  }
+
+
   let totalPrice = () => {
     if (finalCart.length) {
       return finalCart.reduce((acc, cur) => {
@@ -59,6 +83,8 @@ function Cart(props) {
         acc += Number(noSymbol[1])
         return acc
       }, 0)
+    } else {
+      return 0
     }
   }
 
@@ -68,12 +94,22 @@ function Cart(props) {
       {!log && <h1 className='cart-login-warning'>Login <Link className='login-link' to='/login'>here</Link> or <Link className='create-account-link' to='/createaccount'>create an account</Link> to save your cart!</h1>}
       <section className='small-cart-container'>
         <section className='cart-items-container'>
-          <h1>Items</h1>
+          <h1 className='checkout-title'>Items</h1>
           <CartItem finalCart={finalCart} />
         </section>
         <section className='checkout-container'>
-          <h1>Checkout</h1>
-          <h2>${totalPrice()}</h2>
+          <section className='cost-container'>
+            <h1 className='checkout-title'>Checkout</h1>
+            {!success && <h2 className='checkout-title'>${totalPrice()}</h2>}
+            {success && <h2 className='checkout-title'>${totalPrice()} - 20% = <span className='new-price'>${newPrice()}</span></h2>}
+          </section>
+          <section className='promo-container'>
+            <span className='promo-input'>Promo Code:<input type='text' onChange={(event) => setPromo(event.target.value)} value={promo} className='promo'/></span><button className='promo-button' onClick={(event) => checkPromo(event)}>Submit</button>
+          </section>
+          <section>
+            {invalid && <h1 className='empty-suggest'>Not a valid promo code</h1>}
+            {valid && <h1 className='success-promo'>Success! Fall23 has been applied to your cart!</h1>}
+          </section>
         </section>
       </section>
     </section>

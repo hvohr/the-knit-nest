@@ -4,7 +4,7 @@ import './NavBar.css'
 function NavBar() {
   return (
     <section>
-      <p className='discount'>Take 20% off all Lion Brand Yarn! Use Code: Fall23</p>
+      <p className='discount'>Take 20% off your entire cart! Use Code: Fall23</p>
       <nav>
         <section className='icon-container'>
           <NavLink to='/'><img className='site-logo' src={require('../images/Salford sheep (1).jpeg')}></img></NavLink>

@@ -139,6 +139,29 @@
   background-color: white;
 }
 
+.big-cart-container {
+  font-family: 'Bobby Jones Condensed';
+}
+
+.no-items {
+  font-size: 25px;
+}
+
+.cart-title {
+  font-size: 35px;
+  margin: 10px;
+}
+
+.checkout-title {
+  font-size: 30px;
+  margin: 0px;
+}
+
+.cart-login-warning {
+  font-style: italic;
+  margin: 8px;
+}
+
 .small-cart-container {
   display: flex;
   align-items: center;
@@ -149,7 +172,39 @@
 .checkout-container {
   margin: 20px;
   padding: 20px;
-  border: 2px solid black;
+  border: 3px double lightgrey;
+}
+
+.promo-button {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.promo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-container {
+  width: 45%;
+}
+
+.promo {
+  margin: 20px;
+}
+
+.promo-input {
+  font-size: 20px;
+}
+
+.cart-items-container {
+  width: 55%;
 }
 
 .cart-delete {
@@ -221,6 +276,17 @@ p.first {
 .create-account-link,
 .login-link {
   color: #4e2375;
+}
+
+.new-price {
+  color: rgb(224, 18, 18);
+  margin: 5px;
+}
+
+.success-promo {
+  font-size: 18px;
+  font-style: italic;
+  margin: 0px;
 }
 
 input[type="email"],

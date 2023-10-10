@@ -15,7 +15,7 @@ function CartItem(props) {
 
   return (
     <section>
-      {!props.finalCart.length && <h1>No items added to cart yet -- add some now!</h1>}
+      {!props.finalCart.length && <h1 className='no-items'>No items added to cart yet -- add some now!</h1>}
       {cartList}
     </section>
   )

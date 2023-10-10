@@ -17,7 +17,6 @@ function InduvidualProduct(props) {
       }
       props.submitProduct(productInfo)
     } else {
-      console.log('fuck')
       return props.setCart([...props.cart, item.id])
     }
   }
