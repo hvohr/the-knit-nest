@@ -32,14 +32,20 @@ function App() {
     })
   }
 
-
-
+  function submitProduct(item) {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn === "true") {
+      postCart(item).then(data => {
+        console.log('uh oh')
+        setCart([...cart, data])
+      })
+    }
+  }
 
   useEffect(() => {
     getAllProducts().then(
       data => {
         setAllProducts(data.products)
-        sessionStorage.setItem('allproducts', JSON.stringify(data.products))
       }
     )
   }, [])
@@ -47,9 +53,9 @@ function App() {
   useEffect(() => {
     let currentUserID = sessionStorage.getItem('currentUser')
     if (currentUserID) {
-      sessionStorage.setItem('loggedIn', true)
+      sessionStorage.setItem('loggedIn', "true")
     } else {
-      sessionStorage.setItem('loggedIn', false)
+      sessionStorage.setItem('loggedIn', "false")
     }
   }, [])
 
@@ -59,76 +65,46 @@ function App() {
       data => {
         setAllUsers(data.users)
       })
-  }, [users])
+  }, [users, singleCheck])
 
 
   useEffect(() => {
     let currentUserID = sessionStorage.getItem('currentUser')
     let loggedIn = sessionStorage.getItem('loggedIn')
-    if (loggedIn) {
+    if (loggedIn === "true") {
       let currentFind = allUsers.filter((user) => {
         return Number(user.userID) === Number(currentUserID)
       })
       setCart([...cart, currentFind.cart])
       setCurrentUser(currentFind)
+    } else {
+      setCart(cart)
     }
   }, [singleCheck])
 
-  useEffect(() => {
-    console.log(cart)
-    console.log('posted', postedCart)
-  }, [cart])
 
   useEffect(() => {
     submitProduct()
   }, [singleCheck])
 
 
-  function submitProduct(item) {
-    let loggedIn = sessionStorage.getItem('loggedIn')
-    if (loggedIn) {
-      postCart(item).then(data => {
-        setCart([...cart, data])
-      })
-    }
-  }
-
-  useEffect(() => {
-    let loggedIn = sessionStorage.getItem('loggedIn')
-    if (loggedIn) {
-      let newCart = cart.filter(char => !isNaN(parseInt(char)))
-      sessionStorage.setItem('cart', JSON.stringify(newCart))
-    } else {
-      sessionStorage.setItem('cart', '')
-    }
-  }, [cart, postedCart])
-
-
-  useEffect(() => {
-    let cartFilter = allProducts.filter((product) => {
-      return cart.includes(product.id)
-    })
-    setPostedCart(cartFilter)
-  }, [cart])
-
-
-  return (
-    <div className="App">
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/allproducts' element={<AllProducts />} />
-        <Route path='/yarn' element={<Yarn />} />
-        <Route path='/tools' element={<CraftTools />} />
-        <Route path='/books' element={<Books />} />
-        <Route path='/cart' element={<Cart cart={cart} postedCart={postedCart} />} />
-        <Route path='/login' element={<Login setCurrentUser={setCurrentUser} allUsers={allUsers} />} />
-        <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
-        <Route path='/account' element={<AccountInfo allUsers={allUsers} />} />
-        <Route path='/:category/:id' element={<InduvidualProduct setChange={setSingleCheck} currentUser={currentUser} cart={cart} submitProduct={submitProduct} setCart={setCart} />} />
-      </Routes>
-    </div>
-  );
+return (
+  <div className="App">
+    <NavBar />
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/allproducts' element={<AllProducts />} />
+      <Route path='/yarn' element={<Yarn />} />
+      <Route path='/tools' element={<CraftTools />} />
+      <Route path='/books' element={<Books />} />
+      <Route path='/cart' element={<Cart cart={cart} postedCart={postedCart} singleCheck={singleCheck}/>} />
+      <Route path='/login' element={<Login setCurrentUser={setCurrentUser} allUsers={allUsers} />} />
+      <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
+      <Route path='/account' element={<AccountInfo allUsers={allUsers} />} />
+      <Route path='/:category/:id' element={<InduvidualProduct setChange={setSingleCheck} currentUser={currentUser} cart={cart} submitProduct={submitProduct} setCart={setCart} />} />
+    </Routes>
+  </div>
+);
 }
 
 export default App;

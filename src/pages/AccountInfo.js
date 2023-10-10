@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react'
 import { getUsers } from '../components/apiCalls'
 
 
-function AccountInfo(props) {
-  console.log(props)
+function AccountInfo() {
   const [currentUser, setCurrentUser] = useState('')
   const [users, setUsers] = useState([])
  
@@ -47,7 +46,7 @@ function AccountInfo(props) {
         <h2>Password: {currentUser[0].password}</h2>
         <button onClick={() => {
           setCurrentUser('')
-          sessionStorage.setItem('loggedIn', false)
+          sessionStorage.setItem('loggedIn', "false")
           sessionStorage.setItem('currentUser', '')
         }} className='login-submit'>Log out</button>
       </section>

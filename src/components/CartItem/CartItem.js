@@ -1,8 +1,7 @@
 
 function CartItem(props) {
-  let loggedIn = sessionStorage.getItem('loggedIn')
-  console.log('caritem', props)
-  let cartList = props.postedCart.map((cart) => {
+  console.log(props)
+  let cartList = props.finalCart.map((cart) => {
     return (
       <section className='cart-item-container'>
         <img className='cart-delete' src={require('../images/close (1).png')} alt='purple x rounded' />
@@ -16,8 +15,8 @@ function CartItem(props) {
 
   return (
     <section>
-      {(props.postedCart.length === 0) && <h1>No items added to cart yet -- add some now!</h1>}
-      {(props.postedCart.length !== 0 && loggedIn) && cartList}
+      {!props.finalCart.length && <h1>No items added to cart yet -- add some now!</h1>}
+      {cartList}
     </section>
   )
 }

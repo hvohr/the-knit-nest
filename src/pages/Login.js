@@ -22,7 +22,7 @@ function Login(props) {
 
   useEffect(() => {
     let loggedIn = sessionStorage.getItem('loggedIn')
-    if (loggedIn === 'false') {
+    if (loggedIn === "false") {
       setLog(false)
     } else {
       setLog(true)
@@ -47,7 +47,7 @@ function Login(props) {
           <button onClick={(event) => {
             event.preventDefault()
             userList()
-            sessionStorage.setItem('loggedIn', true)
+            sessionStorage.setItem("loggedIn", "true")
           }
           } className='login-submit'>Log in</button>
           {noPrevUser && <p>Not a valid account in our system!</p>}
