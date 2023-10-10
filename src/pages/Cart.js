@@ -9,7 +9,7 @@ function Cart(props) {
   const [users, setUsers] = useState([])
   const [log, setLog] = useState(false)
   const [promo, setPromo] = useState('')
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState('')
   const [valid, setValid] = useState(false)
   const [invalid, setInvalid] = useState(false)
 
@@ -25,6 +25,15 @@ function Cart(props) {
       setLog(true)
     }
   }
+
+  useEffect(() => {
+    let promo = sessionStorage.getItem('success')
+    if (promo === 'true') {
+      setSuccess(true)
+    } else {
+      setSuccess(false)
+    }
+  }, [])
 
   useEffect(() => {
     displayCart()
@@ -60,7 +69,7 @@ function Cart(props) {
     event.preventDefault()
     if (promo === 'FALL23' || promo === 'fall23') {
       setValid(true)
-      setSuccess(true)
+      sessionStorage.setItem('success', 'true')
       setInvalid(false)
       setPromo('')
     } else {
@@ -108,7 +117,7 @@ function Cart(props) {
           </section>
           <section>
             {invalid && <h1 className='empty-suggest'>Not a valid promo code</h1>}
-            {valid && <h1 className='success-promo'>Success! Fall23 has been applied to your cart!</h1>}
+            {success && <h1 className='success-promo'>Success! Fall23 has been applied to your cart!</h1>}
           </section>
         </section>
       </section>
