@@ -81,7 +81,7 @@ function Cart(props) {
 
   let newPrice = () => {
     let discount = totalPrice() * 0.2
-    return totalPrice()- discount
+    return Number(totalPrice()- discount).toFixed(2)
   }
 
 
@@ -90,7 +90,7 @@ function Cart(props) {
       return finalCart.reduce((acc, cur) => {
         let noSymbol = cur.price.split('$')
         acc += Number(noSymbol[1])
-        return acc
+        return Number(acc.toFixed(2))
       }, 0)
     } else {
       return 0

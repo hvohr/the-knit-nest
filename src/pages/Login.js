@@ -27,7 +27,7 @@ function Login(props) {
     } else {
       setLog(true)
     }
-  }, [])
+  }, [currentUser])
 
   return (
     <section className='login-container'>
