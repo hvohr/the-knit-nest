@@ -37,6 +37,7 @@ function Cart(props) {
 
   useEffect(() => {
     displayCart()
+    console.log(users)
   }, [products, users])
 
 
@@ -45,7 +46,7 @@ function Cart(props) {
       data => {
         setUsers(data.users)
       })
-  }, [])
+  }, [log])
 
   function displayProduct2() {
     let currentUserID = sessionStorage.getItem('currentUser')

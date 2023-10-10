@@ -45,6 +45,7 @@ function App() {
     getAllProducts().then(
       data => {
         setAllProducts(data.products)
+        sessionStorage.setItem('allproducts', JSON.stringify(data.products))
       }
     )
   }, [])

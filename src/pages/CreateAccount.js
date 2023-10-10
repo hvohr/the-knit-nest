@@ -38,7 +38,7 @@ function CreateAccount(props) {
   const newUserData = (event) => {
     event.preventDefault();
     const userInfo = {
-      userID: Date.now(),
+      userID: Date.now() + "1",
       name: name1,
       email: email1,
       password: password1,
