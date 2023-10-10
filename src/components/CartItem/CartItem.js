@@ -3,7 +3,7 @@ function CartItem(props) {
   console.log(props)
   let cartList = props.finalCart.map((cart) => {
     return (
-      <section className='cart-item-container'>
+      <section id={cart.id} key={props.finalCart.indexOf(cart) + Date.now()} className='cart-item-container'>
         <img className='cart-delete' src={require('../images/close (1).png')} alt='purple x rounded' />
         <img className='cart-image' src={cart.image} />
         <h3 className='cart-item-info'>{cart.name}</h3>

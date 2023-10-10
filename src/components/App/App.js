@@ -36,7 +36,6 @@ function App() {
     let loggedIn = sessionStorage.getItem('loggedIn')
     if (loggedIn === "true") {
       postCart(item).then(data => {
-        console.log('uh oh')
         setCart([...cart, data])
       })
     }
