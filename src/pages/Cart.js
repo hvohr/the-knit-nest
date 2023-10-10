@@ -82,7 +82,7 @@ function Cart(props) {
 
   let newPrice = () => {
     let discount = totalPrice() * 0.2
-    return Number(totalPrice()- discount).toFixed(2)
+    return Number(totalPrice() - discount).toFixed(2)
   }
 
 
@@ -102,26 +102,26 @@ function Cart(props) {
     <section className='big-cart-container'>
       <h1 className='cart-title'>Shopping Cart</h1>
       {!log && <h1 className='cart-login-warning'>Login <Link className='login-link' to='/login'>here</Link> or <Link className='create-account-link' to='/createaccount'>create an account</Link> to save your cart!</h1>}
-      <section className='small-cart-container'>
-        <section className='cart-items-container'>
-          <h1 className='checkout-title'>Items</h1>
-          <CartItem finalCart={finalCart} />
+        <section className='small-cart-container'>
+          <section className='cart-items-container'>
+            <h1 className='checkout-title'>Items</h1>
+            <CartItem finalCart={finalCart} />
+          </section>
+          <section className='checkout-container'>
+            <section className='cost-container'>
+              <h1 className='checkout-title'>Checkout</h1>
+              {!success && <h2 className='checkout-title'>${totalPrice()}</h2>}
+              {success && <h2 className='checkout-title'>${totalPrice()} - 20% = <span className='new-price'>${newPrice()}</span></h2>}
+            </section>
+            <section className='promo-container'>
+              <span className='promo-input'>Promo Code:<input type='text' onChange={(event) => setPromo(event.target.value)} value={promo} className='promo' /></span><button className='promo-button' onClick={(event) => checkPromo(event)}>Submit</button>
+            </section>
+            <section>
+              {invalid && <h1 className='empty-suggest'>Not a valid promo code</h1>}
+              {success && <h1 className='success-promo'>Success! Fall23 has been applied to your cart!</h1>}
+            </section>
+          </section>
         </section>
-        <section className='checkout-container'>
-          <section className='cost-container'>
-            <h1 className='checkout-title'>Checkout</h1>
-            {!success && <h2 className='checkout-title'>${totalPrice()}</h2>}
-            {success && <h2 className='checkout-title'>${totalPrice()} - 20% = <span className='new-price'>${newPrice()}</span></h2>}
-          </section>
-          <section className='promo-container'>
-            <span className='promo-input'>Promo Code:<input type='text' onChange={(event) => setPromo(event.target.value)} value={promo} className='promo'/></span><button className='promo-button' onClick={(event) => checkPromo(event)}>Submit</button>
-          </section>
-          <section>
-            {invalid && <h1 className='empty-suggest'>Not a valid promo code</h1>}
-            {success && <h1 className='success-promo'>Success! Fall23 has been applied to your cart!</h1>}
-          </section>
-        </section>
-      </section>
     </section>
   )
 }

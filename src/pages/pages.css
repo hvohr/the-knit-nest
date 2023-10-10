@@ -164,8 +164,7 @@
 
 .small-cart-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items:flex-start;
 }
 
 .cart-items-container,
@@ -290,8 +289,7 @@ p.first {
 }
 
 input[type="email"],
-input[type="password"]
- {
+input[type="password"] {
   width: 250px;
   font-size: 25px;
   height: 30px;
