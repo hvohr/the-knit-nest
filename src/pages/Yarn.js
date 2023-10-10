@@ -28,7 +28,6 @@ function Yarn() {
     setToggle(false)
     setBrandToggle(false)
     setNewYarn([])
-    setAllRefine([])
   }
 
   function displayRefined() {
@@ -64,6 +63,11 @@ function Yarn() {
       }
     )
   }
+
+  useEffect(() => {
+    console.log(newYarn)
+    console.log(displayRefined())
+  })
 
 
   useEffect(() => {
@@ -243,9 +247,9 @@ function Yarn() {
             {allWeightRefine.length !== 0 && <span id={allWeightRefine.id} className='refine-values'>{allWeightRefine.name}: {allWeightRefine.value}</span>}
           </p>}
         </div>
-        {(newYarn.length === 0 && (!toggle && !brandToggle && !weightToggle)) && <p>Viewing all {yarn.length} product(s)</p>}
-        {(newYarn.length !== 0) && <p>Viewing all {newYarn.length} product(s)</p>}
-        {(newYarn.length === 0 && (toggle || brandToggle || weightToggle)) && <p>Viewing all {newYarn.length} product(s)</p>}
+        {(newYarn.length === 0 && (!toggle && !brandToggle && !weightToggle)) && <p className='lol'>Viewing all {yarn.length} product(s)</p>}
+        {(newYarn.length !== 0) && <p className='lol2'>Viewing all {newYarn.length} product(s)</p>}
+        {(newYarn.length === 0 && (toggle || brandToggle || weightToggle)) && <p className='lol3'>Viewing all {newYarn.length} product(s)</p>}
         <div>
           {yarn.length !== 0 && <SingleProduct weightToggle={weightToggle} brandToggle={brandToggle} newYarn={newYarn} toggle={toggle} products={yarn} />}
         </div>
