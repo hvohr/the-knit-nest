@@ -4,6 +4,7 @@ import { getSpecificProduct } from '../components/apiCalls'
 
 function Books() {
   const [books, setBooks] = useState([])
+  const [sortedBooks, setSortedBooks] = useState([])
   const [openFilter, setOpenFilter] = useState(false)
   const [filter, setFilter] = useState('')
   const [close, setClose] = useState(true)
@@ -17,12 +18,31 @@ function Books() {
   }
 
   function sortBooks() {
-
+    if (filter === 'A-Z') {
+      let newBooks = books.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
+      setSortedBooks(newBooks)
+    } else if (filter === 'Price Low to High') {
+      let newBooks = books.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
+      setSortedBooks(newBooks)
+    } else if (filter === 'Price High to Low') {
+      let newBooks = books.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
+      console.log('lol', newBooks)
+      setSortedBooks(newBooks)
+    } else if (filter === 'Z-A') {
+      let newBooks = books.sort((a, b) => (b.name > a.name) ? 1 : ((a.name > b.name) ? -1 : 0))
+      setSortedBooks(newBooks)
+    } else {
+      getSpecific()
+    }
   }
+
+
+  useEffect(() => {
+    sortBooks()
+  }, [filter])
 
   useEffect(() => {
     getSpecific()
-    console.log(filter)
   }, [])
 
   return (
@@ -49,16 +69,19 @@ function Books() {
             <button className='filter-button1' onClick={(event) => {
               setFilter(event.target.value)
               setClose(true)
-            }} value='A-Z'>Z-A</button>
+            }} value='Z-A'>Z-A</button>
           </div>}
           {filter && <div className='close-container'>
-            <button className='close-button' onClick={() => setFilter('')}><img className='close-filter' src={require('../components/images/close (2).png')} /></button>
+            <button className='close-button' onClick={() => {
+              setFilter('')
+              setSortedBooks([])
+            }}><img className='close-filter' src={require('../components/images/close (2).png')} /></button>
             <p className='ui-sort'>Sorting by: {filter}</p>
           </div>}
         </div>
       </div>
       <div>
-        {books.length && <SingleProduct products={books} />}
+        {books.length && <SingleProduct filter={filter} sortedBooks={sortedBooks} products={books} />}
       </div>
     </section>
   )
