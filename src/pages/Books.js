@@ -5,7 +5,6 @@ import { getSpecificProduct } from '../components/apiCalls'
 function Books() {
   const [books, setBooks] = useState([])
   const [sortedBooks, setSortedBooks] = useState([])
-  const [openFilter, setOpenFilter] = useState(false)
   const [filter, setFilter] = useState('')
   const [close, setClose] = useState(true)
 
