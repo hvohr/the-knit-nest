@@ -178,6 +178,12 @@
   border: 1px solid lightgrey;
 }
 
+.all-products-container {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 25px;
+  text-align: center;
+}
+
 .filtering-container {
   display: flex;
   align-items: flex-end;
