@@ -27,6 +27,9 @@ function Yarn() {
     setWeightToggle(false)
     setToggle(false)
     setBrandToggle(false)
+    setAllRefine([])
+    setAllBrandRefine([])
+    setAllWeightRefine([])
     setNewYarn([])
   }
 
@@ -83,6 +86,7 @@ function Yarn() {
     if (event.target.checked && event.target.name === 'color') {
       setAllRefine(event.target)
     } else if (event.target.checked && event.target.name === 'brand') {
+      console.log('fuck')
       setAllBrandRefine(event.target)
     } else if (event.target.checked && event.target.name === 'Yarn Weight') {
       setAllWeightRefine(event.target)
@@ -248,8 +252,7 @@ function Yarn() {
           </p>}
         </div>
         {(newYarn.length === 0 && (!toggle && !brandToggle && !weightToggle)) && <p className='lol'>Viewing all {yarn.length} product(s)</p>}
-        {(newYarn.length !== 0) && <p className='lol2'>Viewing all {newYarn.length} product(s)</p>}
-        {(newYarn.length === 0 && (toggle || brandToggle || weightToggle)) && <p className='lol3'>Viewing all {newYarn.length} product(s)</p>}
+        {(toggle || brandToggle || weightToggle) && <p className='lol2'>Viewing all {newYarn.length} product(s)</p>}
         <div>
           {yarn.length !== 0 && <SingleProduct weightToggle={weightToggle} brandToggle={brandToggle} newYarn={newYarn} toggle={toggle} products={yarn} />}
         </div>
