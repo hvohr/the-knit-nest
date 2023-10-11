@@ -178,6 +178,58 @@
   border: 1px solid lightgrey;
 }
 
+.filtering-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  font-family: 'Bobby Jones Condensed';
+  font-size: 22px;
+}
+
+.close-filter {
+  height: 15px;
+}
+
+.ui-sort,
+.filter-items {
+  margin: 10px;
+}
+
+.close-container {
+  display: flex;
+  align-items: center;
+}
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+}
+
+.filter-button {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 22px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.filter-button1 {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 22px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #9167a7;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
 .cart-items-container,
 .checkout-container {
   margin: 20px;
