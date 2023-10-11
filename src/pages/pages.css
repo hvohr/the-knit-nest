@@ -181,9 +181,28 @@
 .filtering-container {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
   flex-direction: column;
   font-family: 'Bobby Jones Condensed';
   font-size: 22px;
+}
+
+.lol,
+.lol2 {
+  text-decoration: underline;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-length {
+  text-decoration: underline;
+  text-align: left;
+  margin-left: 5px;
+  font-size: 18px;
+  font-family: 'Bobby Jones Condensed';
 }
 
 .close-filter {
