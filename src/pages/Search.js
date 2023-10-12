@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import CartItem from '../components/CartItem/CartItem'
 
 function Search() {
   return (
