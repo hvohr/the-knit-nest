@@ -7,6 +7,7 @@ function Tools() {
   const [sortedTools, setSortedTools] = useState([])
   const [filter2, setFilter2] = useState('')
   const [close, setClose] = useState(true)
+  const [change, setChange] = useState(true)
 
 
   function getSpecific() {
@@ -21,17 +22,22 @@ function Tools() {
     if (filter2 === 'A-Z') {
       let newTools = tools.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
       setSortedTools(newTools)
+      setChange(!change)
     } else if (filter2 === 'Price Low to High') {
       let newTools = tools.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
       setSortedTools(newTools)
+      setChange(!change)
     } else if (filter2 === 'Price High to Low') {
       let newTools = tools.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
       setSortedTools(newTools)
+      setChange(!change)
     } else if (filter2 === 'Z-A') {
       let newTools = tools.sort((a, b) => (b.name > a.name) ? 1 : ((a.name > b.name) ? -1 : 0))
       setSortedTools(newTools)
+      setChange(!change)
     } else {
       getSpecific()
+      setChange(!change)
     }
   }
 
@@ -80,7 +86,7 @@ return (
       </div>
     </div>
     <div>
-      {tools.length && <SingleProduct sortedTools={sortedTools} filter2={filter2} products={tools} />}
+      {tools.length && <SingleProduct change={change} sortedTools={sortedTools} filter={filter2} products={tools} />}
     </div>
   </section>
 )

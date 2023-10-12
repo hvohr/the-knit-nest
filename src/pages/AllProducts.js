@@ -7,6 +7,7 @@ function AllProducts() {
   const [sortedProducts, setSortedProducts] = useState([])
   const [filter3, setFilter3] = useState('')
   const [close, setClose] = useState(true)
+  const [change, setChange] = useState(true)
 
 
   function getSpecific() {
@@ -25,17 +26,22 @@ function AllProducts() {
     if (filter3 === 'A-Z') {
       let newProducts = products.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
       setSortedProducts(newProducts)
+      setChange(!change)
     } else if (filter3 === 'Price Low to High') {
       let newProducts = products.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
       setSortedProducts(newProducts)
+      setChange(!change)
     } else if (filter3 === 'Price High to Low') {
       let newProducts = products.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
       setSortedProducts(newProducts)
+      setChange(!change)
     } else if (filter3 === 'Z-A') {
       let newProducts = products.sort((a, b) => (b.name > a.name) ? 1 : ((a.name > b.name) ? -1 : 0))
       setSortedProducts(newProducts)
+      setChange(!change)
     } else {
       getSpecific()
+      setChange(!change)
     }
   }
 
@@ -78,7 +84,7 @@ function AllProducts() {
         </div>
       </div>
       <div>
-        <SingleProduct filter3={filter3} sortedProducts={sortedProducts} products={products} />
+        <SingleProduct filter={filter3} sortedProducts={sortedProducts} change={change} products={products} />
       </div>
     </section>
   )

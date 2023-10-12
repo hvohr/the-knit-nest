@@ -6,6 +6,7 @@ function Books() {
   const [books, setBooks] = useState([])
   const [sortedBooks, setSortedBooks] = useState([])
   const [filter, setFilter] = useState('')
+  const [change, setChange] = useState(true)
   const [close, setClose] = useState(true)
 
   function getSpecific() {
@@ -20,21 +21,24 @@ function Books() {
     if (filter === 'A-Z') {
       let newBooks = books.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0))
       setSortedBooks(newBooks)
+      setChange(!change)
     } else if (filter === 'Price Low to High') {
-      let newBooks = books.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
+      let newBooks = books.sort((a, b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0))
+      setChange(!change)
       setSortedBooks(newBooks)
     } else if (filter === 'Price High to Low') {
       let newBooks = books.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
-      console.log('lol', newBooks)
       setSortedBooks(newBooks)
+      setChange(!change)
     } else if (filter === 'Z-A') {
       let newBooks = books.sort((a, b) => (b.name > a.name) ? 1 : ((a.name > b.name) ? -1 : 0))
       setSortedBooks(newBooks)
+      setChange(!change)
     } else {
       getSpecific()
+      setChange(!change)
     }
   }
-
 
   useEffect(() => {
     sortBooks()
@@ -43,6 +47,7 @@ function Books() {
   useEffect(() => {
     getSpecific()
   }, [])
+
 
   return (
     <section>
@@ -80,7 +85,7 @@ function Books() {
         </div>
       </div>
       <div>
-        {books.length && <SingleProduct filter={filter} sortedBooks={sortedBooks} products={books} />}
+        {books.length && <SingleProduct change={change} filter={filter} sortedBooks={sortedBooks} products={books} />}
       </div>
     </section>
   )

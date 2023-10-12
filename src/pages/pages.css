@@ -164,7 +164,7 @@
 
 .small-cart-container {
   display: flex;
-  align-items:flex-start;
+  align-items: flex-start;
 }
 
 .remove-promo {
@@ -231,6 +231,7 @@
   justify-content: center;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 .filter-button {
@@ -244,6 +245,7 @@
   border: 1px solid lightgrey;
 }
 
+
 .filter-button1 {
   font-family: 'Bobby Jones Condensed';
   font-size: 22px;
@@ -253,6 +255,10 @@
   color: white;
   box-shadow: 4px 4px 4px lightgrey;
   border: 1px solid lightgrey;
+}
+
+.filter-button1:hover {
+  background-color: #4e2375;
 }
 
 .cart-items-container,
