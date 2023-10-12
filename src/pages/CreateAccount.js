@@ -102,7 +102,7 @@ function CreateAccount(props) {
       </form>}
      {newUser && <section>
         <h1>You can successfully created an account! Welcome {currentUser.name}!</h1>
-        <Link to='/' className='login-link'>Return Home</Link>
+        <Link to='/' className='return-button'>Return Home</Link>
       </section>}
     </section>
   )
