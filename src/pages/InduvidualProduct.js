@@ -1,6 +1,11 @@
 import { useParams, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 function InduvidualProduct(props) {
+  const [cartItem, setCartItem] = useState(false)
+  const [item, setItem] = useState(1)
+  const [cart, setCart] = useState([])
+
   let refreshBook = sessionStorage.getItem('allproducts')
   let refreshBookArray = JSON.parse(refreshBook)
   const { id } = useParams();
@@ -21,6 +26,32 @@ function InduvidualProduct(props) {
     }
   }
 
+  function warnDuplicates() {
+    console.log(singleCheck().id)
+    if (!cart.includes(singleCheck().id)) {
+      setCart([...cart, singleCheck().id])
+      setItem(1)
+    } else {
+      setItem(2)
+    }
+  }
+
+  useEffect(() => {
+    console.log(cart)
+  })
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCartItem(false);
+    }, 3000);
+  }, [cartItem]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setItem(1);
+    }, 3000);
+  }, [item]);
+
   return (
     <section className='whole-ind-yarn-container'>
       <div className='go-home-container'>
@@ -37,15 +68,19 @@ function InduvidualProduct(props) {
           <h4 className='ind-price'>{singleCheck().price}</h4>
           <div>
             <button onClick={() => {
+              warnDuplicates()             
               props.setChange(singleCheck().id)
               postUserCart(singleCheck())
+              setCartItem(true)
             }} className='add-to-cart'>Add to Cart</button>
+            {(cartItem && item === 1) && <p className='added-item-confirmation'>Item added to cart! 🎉</p>}
+            {item !== 1 && <p className='added-item-confirmation'>Item was already added to cart! 🚫</p>}
           </div>
-          {singleCheck().color !== null && <h4 className='ind-color'>{singleCheck().color}</h4>}
+          {singleCheck().color !== null && <h4 className='ind-color'>Product Color: {singleCheck().color}</h4>}
           <p className='ind-description'>{singleCheck().description}</p>
         </div>
       </section>
-      <div>
+      <div className='detail-container'>
         <h1>{singleCheck().details}</h1>
       </div>
     </section>

@@ -225,6 +225,14 @@
   align-items: center;
 }
 
+.detail-container {
+  font-family: 'Bobby Jones Condensed';
+}
+
+.ind-description {
+  font-size: 20px;
+}
+
 .close-button {
   display: flex;
   align-items: center;
@@ -303,6 +311,20 @@
 .cart-delete {
   height: 50px;
   margin: 5px;
+}
+
+
+@keyframes gelatine {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
+}
+
+.added-item-confirmation {
+  font-size: 20px;
+  margin: 5px;
+  animation: gelatine 0.5s infinite;
 }
 
 .cart-item-container {
@@ -550,13 +572,15 @@ input[type=checkbox] {
 
 .add-to-cart {
   font-family: 'Bobby Jones Condensed';
-  width: 200px;
+  font-size: 30px;
+  margin: 10px;
   cursor: pointer;
-  font-size: 25px;
-  background-color: #ab8fca;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #4e2375;
   color: white;
-  border: 2px black solid;
-  border-radius: 20px;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
 }
 
 .ind-name {
@@ -565,14 +589,14 @@ input[type=checkbox] {
 }
 
 .ind-brand {
-  margin-top: 0px;
+  margin: 0px;
   font-size: 20px;
 }
 
 .ind-price {
   font-size: 35px;
   color: rgb(0, 0, 0);
-  margin-top: 0px;
+  margin: 20px;
 }
 
 
