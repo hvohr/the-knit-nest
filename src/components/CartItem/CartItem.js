@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react'
 
 
 function CartItem(props) {
-console.log(props)
+
   function removeItem(itemID) {
     let loggedIn = sessionStorage.getItem('loggedIn')
     if (loggedIn === 'false') {
       let newCart = props.finalCart.filter((cart) => cart.id !== itemID)
-      console.log(newCart)
       props.setFinalCart(newCart)
     }
   }

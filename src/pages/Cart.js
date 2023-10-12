@@ -110,10 +110,6 @@ function Cart(props) {
     }
   }
 
-  // useEffect(() => {
-  //   totalPrice()
-  // }, [finalCart])
-
   return (
     <section className='big-cart-container'>
       <h1 className='cart-title'>Shopping Cart</h1>

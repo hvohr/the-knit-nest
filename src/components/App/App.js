@@ -9,6 +9,7 @@ import AccountInfo from '../../pages/AccountInfo'
 import InduvidualProduct from '../../pages/InduvidualProduct'
 import Login from '../../pages/Login'
 import Cart from '../../pages/Cart'
+import Search from '../../pages/Search'
 import CreateAccount from '../../pages/CreateAccount'
 import NavBar from '../NavBar/NavBar'
 import { postUser, getUsers, postCart, getAllProducts } from '../apiCalls'
@@ -101,6 +102,7 @@ return (
       <Route path='/login' element={<Login setCurrentUser={setCurrentUser} allUsers={allUsers} />} />
       <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
       <Route path='/account' element={<AccountInfo allUsers={allUsers} />} />
+      <Route path='/search' element={<Search />} />
       <Route path='/:category/:id' element={<InduvidualProduct setChange={setSingleCheck} currentUser={currentUser} cart={cart} submitProduct={submitProduct} setCart={setCart} />} />
     </Routes>
   </div>

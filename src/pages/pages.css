@@ -10,6 +10,44 @@
   height: 80px;
 }
 
+.search-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bobby Jones Condensed';
+  font-size: 55px;
+  margin: 25px;
+}
+
+.search-bar {
+  width: 500px;
+  height: 50px;
+  font-family: 'Bobby Jones Condensed';
+  font-size: 30px;
+  color: grey;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.find-button {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 35px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.search-cat {
+  height: 60px;
+}
+
 .ideas-title {
   font-size: 25px;
   color: black;

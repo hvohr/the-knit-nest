@@ -27,7 +27,6 @@ function InduvidualProduct(props) {
   }
 
   function warnDuplicates() {
-    console.log(singleCheck().id)
     if (!cart.includes(singleCheck().id)) {
       setCart([...cart, singleCheck().id])
       setItem(1)
@@ -35,10 +34,6 @@ function InduvidualProduct(props) {
       setItem(2)
     }
   }
-
-  useEffect(() => {
-    console.log(cart)
-  })
 
   useEffect(() => {
     setTimeout(() => {

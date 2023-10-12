@@ -68,11 +68,6 @@ function Yarn() {
     )
   }
 
-  useEffect(() => {
-    console.log(newYarn)
-    console.log(displayRefined())
-  })
-
 
   useEffect(() => {
     displayRefined()
@@ -87,7 +82,6 @@ function Yarn() {
     if (event.target.checked && event.target.name === 'color') {
       setAllRefine(event.target)
     } else if (event.target.checked && event.target.name === 'brand') {
-      console.log('fuck')
       setAllBrandRefine(event.target)
     } else if (event.target.checked && event.target.name === 'Yarn Weight') {
       setAllWeightRefine(event.target)
