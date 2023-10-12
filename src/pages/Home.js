@@ -11,10 +11,10 @@ function Home() {
           <Link to='/yarn'><img className='lion-brand-link' src={require('../components/images/maranda-vandergriff-o-d37kiKqqc-unsplash.jpg')}/><h3 className='ideas-title'>Shop Lion Brand Yarn</h3></Link>
         </div>
         <div className='idea-container'>
-          <Link to='/books'><img className='crochet-book-link' src={require('../components/images/ksenia-makagonova-LTxvq0tnOOk-unsplash.jpg')}/><h3 className='ideas-title'>Shop Crochet Books</h3></Link>
+          <Link to='/books'><img className='crochet-book-link' src={require('../components/images/ksenia-makagonova-LTxvq0tnOOk-unsplash.jpg')}/><h3 className='ideas-title'>Shop Crochet/Knit Books</h3></Link>
         </div>
         <div className='idea-container'>
-          <Link to='/crafttools'><img className='knitting-needle-link' src={require('../components/images/nik-91UEmzLi-_Y-unsplash.jpg')}/><h3 className='ideas-title'>Shop Knitting Needles</h3></Link>
+          <Link to='/tools'><img className='knitting-needle-link' src={require('../components/images/nik-91UEmzLi-_Y-unsplash.jpg')}/><h3 className='ideas-title'>Shop Knitting Needles</h3></Link>
         </div>
       </section>
     </section>

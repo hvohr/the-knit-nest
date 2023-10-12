@@ -1,5 +1,7 @@
+let deployed = "https://knit-nest-server.onrender.com"
+
 const getSpecificProduct = async (category) => {
-  const response = await fetch(`http://localhost:3001/api/v1/products/${category}`)
+  const response = await fetch(`${deployed}/api/v1/products/${category}`)
   if (!response.ok) {
     throw new Error(response.status)
   }
@@ -8,7 +10,7 @@ const getSpecificProduct = async (category) => {
 }
 
 const getAllProducts = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/products')
+  const response = await fetch(`${deployed}/api/v1/products`)
   if (!response.ok) {
     throw new Error(response.statusText)
   }
@@ -17,7 +19,7 @@ const getAllProducts = async () => {
 }
 
 const getUsers = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/users')
+  const response = await fetch(`${deployed}/api/v1/users`)
   if (!response.ok) {
     throw new Error(response.statusText)
   }
@@ -27,7 +29,7 @@ const getUsers = async () => {
 
 const postUser = async (newUser) => {
   try {
-    const response = await fetch("http://localhost:3001/api/v1/users", {
+    const response = await fetch(`${deployed}/api/v1/users`, {
       method: "POST",
       body: JSON.stringify(newUser),
       headers: {
@@ -42,7 +44,7 @@ const postUser = async (newUser) => {
 
 const postCart = async (item) => {
   try {
-    const response = await fetch("http://localhost:3001/api/v1/userCart", {
+    const response = await fetch(`${deployed}/api/v1/userCart`, {
       method: "POST",
       body: JSON.stringify(item),
       headers: {
@@ -57,7 +59,7 @@ const postCart = async (item) => {
 
 const deleteCart = async (item) => {
   try {
-    const response = await fetch("http://localhost:3001/api/v1/userCart", {
+    const response = await fetch(`${deployed}/api/v1/userCart`, {
       method: "DELETE",
       body: JSON.stringify(item),
       headers: {
