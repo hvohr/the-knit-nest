@@ -127,6 +127,7 @@ function Cart(props) {
           </section>
         </section>
       </section>
+      <img className='cart-cat' src={require('../components/images/cat.png')} />
     </section>
   )
 }
