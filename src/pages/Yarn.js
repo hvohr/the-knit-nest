@@ -13,6 +13,7 @@ function Yarn() {
   const [showBrand, setShowBrand] = useState(false)
   const [showYarnWeight, setShowYarnWeight] = useState(false)
   const [allRefine, setAllRefine] = useState([])
+  const [filter, setFilter] = useState('')
   const [allBrandRefine, setAllBrandRefine] = useState([])
   const [allWeightRefine, setAllWeightRefine] = useState([])
 
@@ -254,7 +255,7 @@ function Yarn() {
         {(newYarn.length === 0 && (!toggle && !brandToggle && !weightToggle)) && <p className='lol'>Viewing all {yarn.length} product(s)</p>}
         {(toggle || brandToggle || weightToggle) && <p className='lol2'>Viewing all {newYarn.length} product(s)</p>}
         <div>
-          {yarn.length !== 0 && <SingleProduct weightToggle={weightToggle} brandToggle={brandToggle} newYarn={newYarn} toggle={toggle} products={yarn} />}
+          {yarn.length !== 0 && <SingleProduct filter={filter} weightToggle={weightToggle} brandToggle={brandToggle} newYarn={newYarn} toggle={toggle} products={yarn} />}
         </div>
       </section>
     </section>
