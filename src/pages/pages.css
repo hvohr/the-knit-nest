@@ -780,3 +780,41 @@ input[type=checkbox] {
   display: flex;
   justify-content: flex-start;
 }
+
+.menu-image {
+  height: 30px;
+}
+
+.topics-container-phone {
+  display: none;
+}
+
+.phone-menu {
+  background: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.topics-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%
+}
+
+@media only screen and (max-width: 700px) {
+  .topics-container-phone {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%
+  }
+
+  .topics-container {
+    display: none;
+  }
+}
