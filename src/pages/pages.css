@@ -10,6 +10,11 @@
   height: 80px;
 }
 
+.no-results {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 30px;
+}
+
 .search-title {
   display: flex;
   align-items: center;
@@ -24,7 +29,7 @@
   height: 50px;
   font-family: 'Bobby Jones Condensed';
   font-size: 30px;
-  color: grey;
+  color: rgb(0, 0, 0);
 }
 
 .search-bar-container {
