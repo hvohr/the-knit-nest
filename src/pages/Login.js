@@ -1,7 +1,64 @@
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
-function Login() {
+function Login(props) {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [log, setLog] = useState(false)
+  const [currentUser, setCurrentUser] = useState('')
+  const [noPrevUser, setNoPrevUser] = useState(false)
+
+  function userList() {
+    let find1 = props.allUsers.find((user) => user.email === email)
+    if (find1) {
+      props.setCurrentUser(find1)
+      setCurrentUser(find1)
+      setNoPrevUser(false)
+      sessionStorage.setItem('currentUser', find1.userID)
+    } else {
+      setNoPrevUser(true)
+    }
+  }
+
+  useEffect(() => {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn === "false") {
+      setLog(false)
+    } else {
+      setLog(true)
+    }
+  }, [currentUser])
+
   return (
-    <h1>Login</h1>
+    <section className='login-container'>
+      <div className='login-top'>
+        <h1 className='login-welcome'>Welcome Back to The Knit Nest<img className='login-kitten' src={require('../components/images/cat (1).png')} /></h1>
+      </div>
+     {!log && <form>
+        <div className='email-container'>
+          <label>Email<span className='required'>*</span></label>
+          <input type='email' onChange={(event) => setEmail(event.target.value)} name='login-email' className='login-email' />
+        </div>
+        <div className='password-container'>
+          <label>Password<span className='required'>*</span></label>
+          <input type='password' onChange={(event) => setPassword(event.target.value)} name='login-password' className='login-email' />
+        </div>
+        <div>
+          <button onClick={(event) => {
+            event.preventDefault()
+            userList()
+            sessionStorage.setItem("loggedIn", "true")
+          }
+          } className='login-submit'>Log in</button>
+          {noPrevUser && <p>Not a valid account in our system!</p>}
+          <h2 className='login-create'>Not a member with us? <Link className='create-account-link' to='/createaccount'>Create an account here</Link></h2>
+        </div>
+      </form>}
+      {log === true && <section>
+        <h1>You have successfully logged into your account! Welcome {currentUser.name}!</h1>
+        <Link to='/' className='login-link'>Return Home</Link>
+      </section>}
+    </section>
   )
 }
 
