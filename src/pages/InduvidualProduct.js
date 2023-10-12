@@ -65,24 +65,26 @@ function InduvidualProduct(props) {
         <div className='yarn-induvidual-detail-container'>
           <h1 className='ind-name'>{singleCheck().name}</h1>
           {singleCheck().color !== null && <h3 className='ind-brand'>{singleCheck().brand}</h3>}
-          <h4 className='ind-price'>{singleCheck().price}</h4>
           <div>
-            <button onClick={() => {
-              warnDuplicates()             
-              props.setChange(singleCheck().id)
-              postUserCart(singleCheck())
-              setCartItem(true)
-            }} className='add-to-cart'>Add to Cart</button>
+            <div className='add-cart-container'>
+              <h4 className='ind-price'>{singleCheck().price}</h4>
+              <button onClick={() => {
+                warnDuplicates()
+                props.setChange(singleCheck().id)
+                postUserCart(singleCheck())
+                setCartItem(true)
+              }} className='add-to-cart'>Add to Cart</button>
+            </div>
             {(cartItem && item === 1) && <p className='added-item-confirmation'>Item added to cart! 🎉</p>}
             {item !== 1 && <p className='added-item-confirmation'>Item was already added to cart! 🚫</p>}
           </div>
           {singleCheck().color !== null && <h4 className='ind-color'>Product Color: {singleCheck().color}</h4>}
           <p className='ind-description'>{singleCheck().description}</p>
+          <div className='detail-container'>
+            <p><strong>Extra Details:</strong> {singleCheck().details}</p>
+          </div>
         </div>
       </section>
-      <div className='detail-container'>
-        <h1>{singleCheck().details}</h1>
-      </div>
     </section>
   )
 }
