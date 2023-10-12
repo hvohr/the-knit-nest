@@ -55,4 +55,19 @@ const postCart = async (item) => {
   }
 }
 
-export { getAllProducts, getSpecificProduct, postUser, getUsers, postCart }
+const deleteCart = async (item) => {
+  try {
+    const response = await fetch("http://localhost:3001/api/v1/userCart", {
+      method: "DELETE",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": 'application/json'
+      }
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error(`There appears to be an error ${error.statusText}`);
+  }
+}
+
+export { getAllProducts, getSpecificProduct, postUser, getUsers, postCart, deleteCart }
