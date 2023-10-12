@@ -16,9 +16,9 @@ function NavBar() {
           <NavLink className='nav-topics' to='books'>Books</NavLink>
         </section>
         <section className='user-container'>
-          <button className='search-icon'><img className='nav-icon' src={require('../images/loupe.png')} /></button>
-          <NavLink to='account'><img className='nav-icon' src={require('../images/user (1).png')} /></NavLink>
-          <NavLink to='cart'><img className='nav-icon' src={require('../images/shopping-cart.png')} /></NavLink>
+          <button className='search-icon'><img className='nav-icon' src={require('../images/magnifying-glass.png')} /></button>
+          <NavLink to='account'><img className='nav-icon' src={require('../images/user (2).png')} /></NavLink>
+          <NavLink to='cart'><img className='nav-icon' src={require('../images/shopping-cart (2).png')} /></NavLink>
         </section>
       </nav>
     </section>

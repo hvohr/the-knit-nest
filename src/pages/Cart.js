@@ -107,7 +107,7 @@ function Cart(props) {
       <section className='small-cart-container'>
         <section className='cart-items-container'>
           <h1 className='checkout-title'>Items</h1>
-          <CartItem finalCart={finalCart} />
+          <CartItem finalCart={finalCart} setFinalCart={setFinalCart} />
         </section>
         <section className='checkout-container'>
           <section className='cost-container'>

@@ -1,10 +1,19 @@
 
 function CartItem(props) {
-  console.log(props)
+
+  function removeItem(itemID) {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn === 'false') {
+      let newCart = props.finalCart.filter((cart) => cart.id !== itemID)
+      console.log(newCart)
+      props.setFinalCart(newCart)
+    }
+  }
+
   let cartList = props.finalCart.map((cart) => {
     return (
       <section id={cart.id} key={props.finalCart.indexOf(cart) + Date.now()} className='cart-item-container'>
-        <img className='cart-delete' src={require('../images/close (3).png')} alt='purple x rounded' />
+        <button className='delete-item-button' onClick={()=> removeItem(cart.id)}><img className='cart-delete' src={require('../images/close (3).png')} alt='purple x rounded' /></button>
         <img className='cart-image' src={cart.image} />
         <h3 className='cart-item-info'>{cart.name}</h3>
         <h3 className='cart-item-info'>{cart.quantity}</h3>
