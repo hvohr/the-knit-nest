@@ -1,3 +1,5 @@
+/*HomePage*/
+
 .home-greeting {
   font-family: 'Bobby Jones Soft';
   font-size: 45px;
@@ -9,6 +11,170 @@
   width: 500px;
   height: 80px;
 }
+
+.home-ideas {
+  font-family: 'Bobby Jones Condensed';
+  height: contain;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lion-brand-link,
+.crochet-book-link,
+.knitting-needle-link {
+  width: 370px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px rgb(216, 211, 211);
+  border: 1px solid rgb(222, 218, 218);
+  margin: 40px;
+  margin-bottom: 11px;
+  margin-top: 10px;
+  height: 250px;
+  transition: all .2s ease-in-out;
+}
+
+.lion-brand-link:hover,
+.crochet-book-link:hover,
+.knitting-needle-link:hover {
+  transform: scale(1.1);
+}
+
+/*Login/Create Account Page*/
+
+.login-suggest {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 20px;
+  margin: 5px;
+}
+
+.cart-login-warning {
+  font-style: italic;
+  margin: 8px;
+}
+
+.empty-suggest {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 20px;
+  color: red;
+  margin: 5px;
+}
+
+.create-account-link,
+.login-link {
+  color: #4e2375;
+}
+
+.login-kitten {
+  height: 100px;
+  margin-left: 20px;
+}
+
+
+input[type="email"],
+input[type="password"] {
+  width: 250px;
+  font-size: 25px;
+  height: 30px;
+}
+
+.hidden {
+  margin: 5px;
+}
+
+.password-container2 {
+  margin: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.password {
+  margin: 5px;
+  display: flex;
+  align-content: center;
+  justify-items: center;
+}
+
+.login-top {
+  display: flex;
+  justify-content: center;
+}
+
+input[type="text"] {
+  width: 150px;
+  margin-left: 10px;
+  font-size: 25px;
+  height: 30px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.required {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.login-submit {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 35px;
+  cursor: pointer;
+  background-color: #4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.account-info-container {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 25px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-create {
+  font-size: 20px;
+  font-family: 'Bobby Jones Condensed';
+}
+
+.first {
+  font-size: 20px;
+}
+
+.email-container,
+.password-container {
+  width: 450px;
+  display: flex;
+  align-items: center;
+  font-family: 'Bobby Jones Condensed';
+  font-size: 35px;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.login-welcome {
+  font-size: 45px;
+  display: flex;
+  margin: 5px;
+  align-items: center;
+  font-family: 'Bobby Jones Condensed';
+}
+
+form {
+  border: 5px solid #4e2375;
+  padding: 10px;
+  width: 600px;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*Search Page*/
 
 .no-results {
   font-family: 'Bobby Jones Condensed';
@@ -53,38 +219,7 @@
   height: 60px;
 }
 
-.ideas-title {
-  font-size: 25px;
-  color: black;
-  margin-top: 0px
-}
-
-.home-ideas {
-  font-family: 'Bobby Jones Condensed';
-  height: contain;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.book-name {
-  font-size: 20px;
-  margin: 10px;
-}
-
-.book-price {
-  font-size: 25px;
-  margin: 20px;
-}
-
-.page-description {
-  font-family: 'Bobby Jones Condensed';
-  font-size: 20px;
-  width: 90%;
-  text-align: left;
-  margin: auto;
-  text-align: center;
-}
+/*Yarn Page*/
 
 .page-title {
   font-family: 'Bobby Jones Condensed';
@@ -182,6 +317,63 @@
   background-color: white;
 }
 
+/*Book*/
+
+.ideas-title {
+  font-size: 25px;
+  color: black;
+  margin-top: 0px
+}
+
+.book-name {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.book-price {
+  font-size: 25px;
+  margin: 20px;
+}
+
+.page-description {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 20px;
+  width: 90%;
+  text-align: left;
+  margin: auto;
+  text-align: center;
+}
+
+/*Cart Page*/
+
+.promo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout-container {
+  width: 45%;
+}
+
+.promo {
+  margin: 20px;
+}
+
+.promo-input {
+  font-size: 20px;
+}
+
+.cart-items-container {
+  width: 55%;
+}
+
+.cart-delete {
+  height: 50px;
+  cursor: pointer;
+  margin: 5px;
+}
+
 .big-cart-container {
   font-family: 'Bobby Jones Condensed';
 }
@@ -198,11 +390,6 @@
 .checkout-title {
   font-size: 30px;
   margin: 0px;
-}
-
-.cart-login-warning {
-  font-style: italic;
-  margin: 8px;
 }
 
 .small-cart-container {
@@ -331,24 +518,11 @@
   border: 3px double lightgrey;
 }
 
-.return-button {
-  font-family: 'Bobby Jones Condensed';
-  font-size: 25px;
-  padding: 8px;
-  border-radius: 10px;
-  text-decoration: none;
-  cursor: pointer;
-  background-color: #4e2375;
-  color: white;
-  box-shadow: 4px 4px 4px lightgrey;
-  border: 1px solid lightgrey;
-}
-
-.password {
-  margin: 5px;
+.cart-item-container {
   display: flex;
-  align-content: center;
-  justify-items: center;
+  align-items: center;
+  justify-content: space-around;
+  font-family: 'Bobby Jones Condensed';
 }
 
 .promo-button {
@@ -361,32 +535,24 @@
   border: 1px solid lightgrey;
 }
 
-.promo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.checkout-container {
-  width: 45%;
-}
-
-.promo {
-  margin: 20px;
-}
-
-.promo-input {
-  font-size: 20px;
-}
-
-.cart-items-container {
-  width: 55%;
-}
-
-.cart-delete {
-  height: 50px;
-  cursor: pointer;
+.cart-item-info {
   margin: 5px;
+  font-size: 25px;
+}
+
+/*SingleProduct Page*/
+
+.return-button {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 25px;
+  padding: 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
 }
 
 @keyframes gelatine {
@@ -415,75 +581,10 @@
   animation: gelatine 0.5s infinite;
 }
 
-.cart-item-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  font-family: 'Bobby Jones Condensed';
-}
-
-.cart-item-info {
-  margin: 5px;
-  font-size: 25px;
-}
-
-.login-kitten {
-  height: 100px;
-  margin-left: 20px;
-}
-
-.login-welcome {
-  font-size: 45px;
-  display: flex;
-  margin: 5px;
-  align-items: center;
-  font-family: 'Bobby Jones Condensed';
-}
-
-form {
-  border: 5px solid #4e2375;
-  padding: 10px;
-  width: 600px;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.account-info-container {
-  font-family: 'Bobby Jones Condensed';
-  font-size: 25px;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 p.first {
   margin-top: 0px;
 }
 
-.required {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-.login-suggest {
-  font-family: 'Bobby Jones Condensed';
-  font-size: 20px;
-  margin: 5px;
-}
-
-.empty-suggest {
-  font-family: 'Bobby Jones Condensed';
-  font-size: 20px;
-  color: red;
-  margin: 5px;
-}
-
-.create-account-link,
-.login-link {
-  color: #4e2375;
-}
 
 .new-price {
   color: rgb(224, 18, 18);
@@ -494,56 +595,6 @@ p.first {
   font-size: 18px;
   font-style: italic;
   margin: 0px;
-}
-
-input[type="email"],
-input[type="password"] {
-  width: 250px;
-  font-size: 25px;
-  height: 30px;
-}
-
-input[type="text"] {
-  width: 150px;
-  margin-left: 10px;
-  font-size: 25px;
-  height: 30px;
-}
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.login-submit {
-  font-family: 'Bobby Jones Condensed';
-  font-size: 35px;
-  cursor: pointer;
-  background-color: #4e2375;
-  color: white;
-  box-shadow: 4px 4px 4px lightgrey;
-  border: 1px solid lightgrey;
-}
-
-.login-create {
-  font-size: 20px;
-  font-family: 'Bobby Jones Condensed';
-}
-
-.first {
-  font-size: 20px;
-}
-
-.email-container,
-.password-container {
-  width: 450px;
-  display: flex;
-  align-items: center;
-  font-family: 'Bobby Jones Condensed';
-  font-size: 35px;
-  justify-content: space-between;
-  margin: 30px;
 }
 
 .show-button {
@@ -560,20 +611,6 @@ input[type="text"] {
   border: 1px solid lightgrey;
 }
 
-.hidden {
-  margin: 5px;
-}
-
-.password-container2 {
-  margin: 10px;
-  display: flex;
-  align-items: flex-start;
-}
-
-.login-top {
-  display: flex;
-  justify-content: center;
-}
 
 .cart-image {
   height: 100px;
@@ -742,24 +779,4 @@ input[type=checkbox] {
   font-family: 'Bobby Jones Condensed';
   display: flex;
   justify-content: flex-start;
-}
-
-.lion-brand-link,
-.crochet-book-link,
-.knitting-needle-link {
-  width: 370px;
-  border-radius: 30px;
-  box-shadow: 5px 5px 5px rgb(216, 211, 211);
-  border: 1px solid rgb(222, 218, 218);
-  margin: 40px;
-  margin-bottom: 11px;
-  margin-top: 10px;
-  height: 250px;
-  transition: all .2s ease-in-out;
-}
-
-.lion-brand-link:hover,
-.crochet-book-link:hover,
-.knitting-needle-link:hover {
-  transform: scale(1.1);
 }
