@@ -27,9 +27,9 @@ function Search() {
 
   return (
     <section className='search-container'>
-      <h1 className='search-title'>Search KnitNest Products<img className='search-cat' src={require('../components/images/silhouette_of_cat_with_ball_of_yarn_vector_by_froggyartdesigns_dahgamk-fullview.png')} /></h1>
+      <h1 className='search-title'>Search Knit Nest Products<img className='search-cat' src={require('../components/images/silhouette_of_cat_with_ball_of_yarn_vector_by_froggyartdesigns_dahgamk-fullview.png')} /></h1>
       <div className='search-bar-container'>
-        <input className='search-bar' onChange={(event) => {
+        <input placeholder='"Knitting Needles..."' className='search-bar' onChange={(event) => {
           event.preventDefault()
           setSearch(event.target.value)
         }} type='search' name='search' />
