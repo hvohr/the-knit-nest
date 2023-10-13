@@ -672,7 +672,7 @@ p.first {
 }
 
 .filter-container {
-  width: 250px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   font-size: 17px;
@@ -836,5 +836,28 @@ input[type=checkbox] {
 
   .search-bar {
     width: 450px;
+  }
+
+  .book-image {
+    width: 80%;
+  }
+
+  .small-book-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .yarn-container {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .filter-container {
+    flex-direction:row;
+    width: 90%;
+  }
+
+  .refine-button {
+    font-size: 15px;
   }
 }
