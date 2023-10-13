@@ -671,6 +671,11 @@ p.first {
   margin-bottom: 0px;
 }
 
+.data-loading {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 20px;
+}
+
 .filter-container {
   width: 300px;
   display: flex;

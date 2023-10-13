@@ -85,7 +85,10 @@ function Books() {
         </div>
       </div>
       <div>
-        {books.length && <SingleProduct change={change} filter={filter} sortedBooks={sortedBooks} products={books} />}
+      {books.length === 0 && <h2 className='data-loading'>Loading...</h2>}
+    </div>
+      <div>
+        {books.length !==0 && <SingleProduct change={change} filter={filter} sortedBooks={sortedBooks} products={books} />}
       </div>
     </section>
   )

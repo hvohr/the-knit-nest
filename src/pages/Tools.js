@@ -86,7 +86,10 @@ return (
       </div>
     </div>
     <div>
-      {tools.length && <SingleProduct change={change} sortedTools={sortedTools} filter={filter2} products={tools} />}
+      {tools.length === 0 && <h2 className='data-loading'>Loading...</h2>}
+    </div>
+    <div>
+      {tools.length !==0 && <SingleProduct change={change} sortedTools={sortedTools} filter={filter2} products={tools} />}
     </div>
   </section>
 )

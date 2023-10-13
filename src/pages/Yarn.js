@@ -257,6 +257,9 @@ function Yarn() {
         {(newYarn.length === 0 && (!toggle && !brandToggle && !weightToggle)) && <p className='lol'>Viewing all {yarn.length} product(s)</p>}
         {(toggle || brandToggle || weightToggle) && <p className='lol2'>Viewing all {newYarn.length} product(s)</p>}
         <div>
+          {yarn.length === 0 && <h2 className='data-loading'>Loading...</h2>}
+        </div>
+        <div>
           {yarn.length !== 0 && <SingleProduct filter={filter} weightToggle={weightToggle} brandToggle={brandToggle} newYarn={newYarn} toggle={toggle} products={yarn} />}
         </div>
       </section>
