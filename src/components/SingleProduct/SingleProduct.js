@@ -6,7 +6,7 @@ function SingleProduct(props) {
     if (props.newYarn) {
       return props.newYarn.map((product) => {
         return (
-          <Link key={Date.now() + props.products.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
+          <Link key={Date.now() + props.newYarn.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
             <img className='book-image' src={product.image} />
             <div>
               <h3 className='book-name'>{product.name}</h3>
@@ -36,7 +36,7 @@ function SingleProduct(props) {
     if (props.sortedBooks) {
       return props.sortedBooks.map((product) => {
         return (
-          <Link key={Date.now() + props.products.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
+          <Link key={Date.now() + props.sortedBooks.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
             <img className='book-image' src={product.image} />
             <div>
               <h3 className='book-name'>{product.name}</h3>
@@ -52,7 +52,7 @@ function SingleProduct(props) {
     if (props.sortedTools) {
       return props.sortedTools.map((product) => {
         return (
-          <Link key={Date.now() + props.products.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
+          <Link key={Date.now() + props.sortedTools.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
             <img className='book-image' src={product.image} />
             <div>
               <h3 className='book-name'>{product.name}</h3>
@@ -64,35 +64,19 @@ function SingleProduct(props) {
     }
   }
 
-  function sortedProducts() {
-    if (props.sortedProducts) {
-      return props.sortedProducts.map((product) => {
-        return (
-          <Link key={Date.now() + props.products.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
-            <img className='book-image' src={product.image} />
-            <div>
-              <h3 className='book-name'>{product.name}</h3>
-              <h3 className='book-price'>{product.price}</h3>
-            </div>
-          </Link>
-        )
-      })
-    }
-  }
 
   useEffect(() => {
     sortedBooks()
-    sortedProducts()
     sortedTools()
   }, [props.change])
 
   return (
     <section className='book-container'>
       {(!props.toggle && !props.brandToggle && !props.weightToggle && props.filter === '') && singleProduct()}
+      {(props.searched && !props.empty) && singleProduct()}
       {(props.toggle || props.brandToggle || props.weightToggle) && filteredProduct()}
       {props.filter !== '' && sortedBooks()}
       {props.filter !== '' && sortedTools()}
-      {props.filter !== '' && sortedProducts()}
     </section>
   )
 }

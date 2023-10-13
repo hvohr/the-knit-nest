@@ -50,11 +50,11 @@ function Login(props) {
             sessionStorage.setItem("loggedIn", "true")
           }
           } className='login-submit'>Log in</button>
-          {noPrevUser && <p>Not a valid account in our system!</p>}
+          {noPrevUser && <p className='not-valid-account'>Not a valid account in our system!</p>}
           <h2 className='login-create'>Not a member with us? <Link className='create-account-link' to='/createaccount'>Create an account here</Link></h2>
         </div>
       </form>}
-      {log === true && <section>
+      {log === true && <section className='login-success'>
         <h1>You have successfully logged into your account! Welcome {currentUser.name}!</h1>
         <Link to='/' className='login-link'>Return Home</Link>
       </section>}

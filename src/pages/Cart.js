@@ -1,7 +1,7 @@
 import CartItem from '../components/CartItem/CartItem'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getAllProducts, getUsers } from '../components/apiCalls'
+import { getAllProducts, getUsers, deleteCart } from '../components/apiCalls'
 
 function Cart(props) {
   const [products, setProducts] = useState([])
@@ -13,6 +13,7 @@ function Cart(props) {
   const [valid, setValid] = useState(false)
   const [invalid, setInvalid] = useState(false)
   const [change, setChange] = useState(false)
+  const [changed, setChanged] = useState('')
 
   function displayCart() {
     let loggedIn = sessionStorage.getItem('loggedIn')
@@ -24,6 +25,15 @@ function Cart(props) {
     else {
       displayProduct2()
       setLog(true)
+    }
+  }
+
+  function deleteLoggedItem(item) {
+    let loggedIn = sessionStorage.getItem('loggedIn')
+    if (loggedIn === "true") {
+      deleteCart(item).then(data => {
+        setChanged(Date.now())
+      })
     }
   }
 
@@ -46,7 +56,7 @@ function Cart(props) {
       data => {
         setUsers(data.users)
       })
-  }, [])
+  }, [changed])
 
   function displayProduct2() {
     let currentUserID = sessionStorage.getItem('currentUser')
@@ -54,7 +64,9 @@ function Cart(props) {
       return Number(user.userID) == Number(currentUserID)
     })
     let cartFilter = products.filter((product) => {
-      return currentFind[0].cart.includes(product.id)
+      if (currentFind[0]) {
+        return currentFind[0].cart.includes(product.id)
+      }
     })
     setFinalCart(cartFilter)
   }
@@ -89,7 +101,7 @@ function Cart(props) {
 
 
   let totalPrice = () => {
-    if (finalCart.length) {
+    if (finalCart.length !== 0) {
       return finalCart.reduce((acc, cur) => {
         let noSymbol = cur.price.split('$')
         acc += Number(noSymbol[1])
@@ -107,7 +119,7 @@ function Cart(props) {
       <section className='small-cart-container'>
         <section className='cart-items-container'>
           <h1 className='checkout-title'>Items</h1>
-          <CartItem finalCart={finalCart} />
+          <CartItem deleteLoggedItem={deleteLoggedItem} finalCart={finalCart} setFinalCart={setFinalCart} />
         </section>
         <section className='checkout-container'>
           <section className='cost-container'>
@@ -127,6 +139,7 @@ function Cart(props) {
           </section>
         </section>
       </section>
+      <img className='cart-cat' src={require('../components/images/cat.png')} />
     </section>
   )
 }

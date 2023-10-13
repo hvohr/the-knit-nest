@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
 import Home from '../../pages/Home'
-import AllProducts from '../../pages/AllProducts'
 import Yarn from '../../pages/Yarn'
 import CraftTools from '../../pages/Tools'
 import Books from '../../pages/Books'
@@ -9,6 +8,7 @@ import AccountInfo from '../../pages/AccountInfo'
 import InduvidualProduct from '../../pages/InduvidualProduct'
 import Login from '../../pages/Login'
 import Cart from '../../pages/Cart'
+import Search from '../../pages/Search'
 import CreateAccount from '../../pages/CreateAccount'
 import NavBar from '../NavBar/NavBar'
 import { postUser, getUsers, postCart, getAllProducts } from '../apiCalls'
@@ -21,7 +21,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState('')
   const [allUsers, setAllUsers] = useState([])
   const [singleCheck, setSingleCheck] = useState('')
-  const [allProducts, setAllProducts] = useState([])
 
   const submitUser = (newUser) => {
     setCurrentUser(newUser)
@@ -44,7 +43,6 @@ function App() {
   useEffect(() => {
     getAllProducts().then(
       data => {
-        setAllProducts(data.products)
         sessionStorage.setItem('allproducts', JSON.stringify(data.products))
       }
     )
@@ -93,7 +91,6 @@ return (
     <NavBar />
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/allproducts' element={<AllProducts />} />
       <Route path='/yarn' element={<Yarn />} />
       <Route path='/tools' element={<CraftTools />} />
       <Route path='/books' element={<Books />} />
@@ -101,6 +98,7 @@ return (
       <Route path='/login' element={<Login setCurrentUser={setCurrentUser} allUsers={allUsers} />} />
       <Route path='/createaccount' element={<CreateAccount allUsers={allUsers} submitUser={submitUser} />} />
       <Route path='/account' element={<AccountInfo allUsers={allUsers} />} />
+      <Route path='/search' element={<Search />} />
       <Route path='/:category/:id' element={<InduvidualProduct setChange={setSingleCheck} currentUser={currentUser} cart={cart} submitProduct={submitProduct} setCart={setCart} />} />
     </Routes>
   </div>

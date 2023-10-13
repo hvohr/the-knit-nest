@@ -16,32 +16,39 @@ nav {
   margin-bottom: 0px;
 }
 
+.maple-discount {
+  height: 28px;
+  margin-left: 5px;
+}
+
 .discount {
   font-family: 'Bobby Jones Soft';
   background-color: #4e2375;
   color: white;
   font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0px;
   padding: 5px;
 }
 
-.search-icon {
+.delete-item-button {
   background: none;
   border: none;
+}
+
+.search-icon {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0px;
 }
 
 .site-logo {
   width: 320px;
   margin-left: 10px;
   margin-right: 10px;
-}
-
-.topics-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 100%
 }
 
 .user-container {
@@ -69,4 +76,59 @@ nav {
 .nav-topics:active,
 .nav-topics:focus {
   background-size: 100% 0.1em;
+}
+
+
+.menu-image {
+  height: 25px;
+}
+
+.topics-container-phone {
+  display: none;
+}
+
+.phone-menu {
+  background: none;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.topics-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%
+}
+
+@media only screen and (max-width: 600px) {
+  .topics-container-phone {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-logo {
+    width: 300px;
+    margin: 5px;
+  }
+
+  .phone-menu {
+    margin: 15px;
+  }
+
+  .topics-container {
+    display: none;
+  }
+
+  .nav-topics {
+    justify-content: center;
+    display: flex;
+    font-size: 22px;
+    margin: 10px;
+  }
 }
