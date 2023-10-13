@@ -792,4 +792,25 @@ input[type=checkbox] {
   justify-content: flex-start;
 }
 
-@media only screen and (max-width: 600px) {}
+.not-valid-account,
+.login-success {
+  font-family: 'Bobby Jones Condensed';
+}
+
+.login-success {
+  font-size: 25px;
+  width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+  .login-welcome {
+    font-size: 39px;
+  }
+  .login-kitten {
+    height: 80px;
+  }
+
+  form {
+    width: 85%;
+  }
+}
