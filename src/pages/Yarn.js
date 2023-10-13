@@ -92,150 +92,158 @@ function Yarn() {
     <section className='yarn-container'>
       <section className='filter-container'>
         <h3 className='filter-title'>Refine By:</h3>
-        <button className='uncheck-button' onClick={() => unCheckButtons()}>⌀ Uncheck All</button>
-        <button className='refine-button' onClick={() => setShowColor(!showColor)}>↓ Color</button>
-        {showColor && <div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='Red' />
-            <span className="dot-red"></span>
-            <label htmlFor="red">Red</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='Green' />
-            <span className="dot-green"></span>
-            <label htmlFor="green">Green</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='Blue' />
-            <span className="dot-blue"></span>
-            <label htmlFor="blue">Blue</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='Yellow' />
-            <span className="dot-yellow"></span>
-            <label htmlFor="yellow">Yellow</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='Purple' />
-            <span className="dot-purple"></span>
-            <label htmlFor="purple">Purple</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='Orange' />
-            <span className="dot-orange"></span>
-            <label htmlFor="orange">Orange</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='White' />
-            <span className="dot-white"></span>
-            <label htmlFor="white">White</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='color' onChange={(event) => {
-              handleChecked(event)
-              setToggle(true)
-            }} value='Black' />
-            <span className="dot-black"></span>
-            <label htmlFor="black">Black</label>
-          </div>
-        </div>}
-        <button className='refine-button' onClick={() => setShowBrand(!showBrand)}>↓ Brand</button>
-        {showBrand && <div>
-          <div className='price-container'>
-            <input type='radio' name='brand' onChange={(event) => {
-              handleChecked(event)
-              setBrandToggle(true)
-            }} value='Lion Brand' />
-            <label htmlFor="lion">Lion Brand</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='brand' onChange={(event) => {
-              handleChecked(event)
-              setBrandToggle(true)
-            }} value='Bernat' />
-            <label htmlFor="bernat">Bernat</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='brand' onChange={(event) => {
-              handleChecked(event)
-              setBrandToggle(true)
-            }} value='Lily Sugar n Cream' />
-            <label htmlFor="lily">Lily Sugar'n Cream</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' name='brand' onChange={(event) => {
-              handleChecked(event)
-              setBrandToggle(true)
-            }} value='Red Heart' />
-            <label htmlFor="red-heart">Red Heart</label>
-          </div>
-        </div>}
-        <button className='refine-button' onClick={() => setShowYarnWeight(!showYarnWeight)}>↓ Yarn Weight</button>
-        {showYarnWeight && <div>
-          <div className='price-container'>
-            <input type='radio' id='lace' name='Yarn Weight' onChange={(event) => {
-              handleChecked(event)
-              setWeightToggle(true)
-            }} value='Lace' />
-            <label htmlFor="lace">0 - Lace</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' id='super' name='Yarn Weight' onChange={(event) => {
-              handleChecked(event)
-              setWeightToggle(true)
-            }} value='Super Fine' />
-            <label htmlFor="super">1 - Super Fine</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' id='fine' name='Yarn Weight' onChange={(event) => {
-              handleChecked(event)
-              setWeightToggle(true)
-            }} value='Fine' />
-            <label htmlFor="fine">2 - Fine</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' id='light' name='Yarn Weight' onChange={(event) => {
-              handleChecked(event)
-              setWeightToggle(true)
-            }} value='Light' />
-            <label htmlFor="light">3- Light</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' id='medium' name='Yarn Weight' onChange={(event) => {
-              handleChecked(event)
-              setWeightToggle(true)
-            }} value='Medium' />
-            <label htmlFor="medium">4 - Medium</label>
-          </div>
-          <div className='price-container'>
-            <input type='radio' id='bulky' name='Yarn Weight' onChange={(event) => {
-              handleChecked(event)
-              setWeightToggle(true)
-            }} value='Bulky' />
-            <label htmlFor="bulky">5 - Bulky</label>
-          </div>
-        </div>}
+        <div>
+          <button className='uncheck-button' onClick={() => unCheckButtons()}>⌀ Uncheck All</button>
+        </div>
+        <div>
+          <button className='refine-button' onClick={() => setShowColor(!showColor)}>↓ Color</button>
+          {showColor && <div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='Red' />
+              <span className="dot-red"></span>
+              <label htmlFor="red">Red</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='Green' />
+              <span className="dot-green"></span>
+              <label htmlFor="green">Green</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='Blue' />
+              <span className="dot-blue"></span>
+              <label htmlFor="blue">Blue</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='Yellow' />
+              <span className="dot-yellow"></span>
+              <label htmlFor="yellow">Yellow</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='Purple' />
+              <span className="dot-purple"></span>
+              <label htmlFor="purple">Purple</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='Orange' />
+              <span className="dot-orange"></span>
+              <label htmlFor="orange">Orange</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='White' />
+              <span className="dot-white"></span>
+              <label htmlFor="white">White</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='color' onChange={(event) => {
+                handleChecked(event)
+                setToggle(true)
+              }} value='Black' />
+              <span className="dot-black"></span>
+              <label htmlFor="black">Black</label>
+            </div>
+          </div>}
+        </div>
+        <div>
+          <button className='refine-button' onClick={() => setShowBrand(!showBrand)}>↓ Brand</button>
+          {showBrand && <div>
+            <div className='price-container'>
+              <input type='radio' name='brand' onChange={(event) => {
+                handleChecked(event)
+                setBrandToggle(true)
+              }} value='Lion Brand' />
+              <label htmlFor="lion">Lion Brand</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='brand' onChange={(event) => {
+                handleChecked(event)
+                setBrandToggle(true)
+              }} value='Bernat' />
+              <label htmlFor="bernat">Bernat</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='brand' onChange={(event) => {
+                handleChecked(event)
+                setBrandToggle(true)
+              }} value='Lily Sugar n Cream' />
+              <label htmlFor="lily">Lily Sugar'n Cream</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' name='brand' onChange={(event) => {
+                handleChecked(event)
+                setBrandToggle(true)
+              }} value='Red Heart' />
+              <label htmlFor="red-heart">Red Heart</label>
+            </div>
+          </div>}
+        </div>
+        <div>
+          <button className='refine-button' onClick={() => setShowYarnWeight(!showYarnWeight)}>↓ Yarn Weight</button>
+          {showYarnWeight && <div>
+            <div className='price-container'>
+              <input type='radio' id='lace' name='Yarn Weight' onChange={(event) => {
+                handleChecked(event)
+                setWeightToggle(true)
+              }} value='Lace' />
+              <label htmlFor="lace">0 - Lace</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' id='super' name='Yarn Weight' onChange={(event) => {
+                handleChecked(event)
+                setWeightToggle(true)
+              }} value='Super Fine' />
+              <label htmlFor="super">1 - Super Fine</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' id='fine' name='Yarn Weight' onChange={(event) => {
+                handleChecked(event)
+                setWeightToggle(true)
+              }} value='Fine' />
+              <label htmlFor="fine">2 - Fine</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' id='light' name='Yarn Weight' onChange={(event) => {
+                handleChecked(event)
+                setWeightToggle(true)
+              }} value='Light' />
+              <label htmlFor="light">3- Light</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' id='medium' name='Yarn Weight' onChange={(event) => {
+                handleChecked(event)
+                setWeightToggle(true)
+              }} value='Medium' />
+              <label htmlFor="medium">4 - Medium</label>
+            </div>
+            <div className='price-container'>
+              <input type='radio' id='bulky' name='Yarn Weight' onChange={(event) => {
+                handleChecked(event)
+                setWeightToggle(true)
+              }} value='Bulky' />
+              <label htmlFor="bulky">5 - Bulky</label>
+            </div>
+          </div>}
+        </div>
       </section>
       <section className='small-yarn-container'>
         <h1 className='page-title'>Yarn</h1>

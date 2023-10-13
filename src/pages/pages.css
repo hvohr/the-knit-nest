@@ -859,10 +859,15 @@ input[type=checkbox] {
 
   .filter-container {
     flex-direction:row;
+    align-items: center;
     width: 90%;
   }
 
   .refine-button {
-    font-size: 15px;
+    font-size: 19px;
+  }
+
+  .uncheck-button {
+    font-size: 19px;
   }
 }
