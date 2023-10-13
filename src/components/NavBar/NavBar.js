@@ -13,7 +13,6 @@ function NavBar() {
           <NavLink to='/'><img className='site-logo' src={require('../images/Salford sheep (1).jpeg')}></img></NavLink>
         </section>
         <section className='topics-container'>
-          <NavLink className='nav-topics' to='allproducts'>All Products</NavLink>
           <NavLink className='nav-topics' to='yarn'>Yarn</NavLink>
           <NavLink className='nav-topics' to='tools'>Craft Tools</NavLink>
           <NavLink className='nav-topics' to='books'>Books</NavLink>
@@ -22,7 +21,7 @@ function NavBar() {
           <div>
             <button onClick={() => setShowMenu(!showMenu)} className='phone-menu'><img className='menu-image' src={require('../images/menu (1).png')} /></button>
           </div>
-          {showMenu && <div><NavLink className='nav-topics' to='allproducts'>All Products</NavLink>
+          {showMenu && <div>
             <NavLink className='nav-topics' to='yarn'>Yarn</NavLink>
             <NavLink className='nav-topics' to='tools'>Craft Tools</NavLink>
             <NavLink className='nav-topics' to='books'>Books</NavLink></div>}

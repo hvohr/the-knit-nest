@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
 import Home from '../../pages/Home'
-import AllProducts from '../../pages/AllProducts'
 import Yarn from '../../pages/Yarn'
 import CraftTools from '../../pages/Tools'
 import Books from '../../pages/Books'
@@ -22,7 +21,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState('')
   const [allUsers, setAllUsers] = useState([])
   const [singleCheck, setSingleCheck] = useState('')
-  const [allProducts, setAllProducts] = useState([])
 
   const submitUser = (newUser) => {
     setCurrentUser(newUser)
@@ -45,7 +43,6 @@ function App() {
   useEffect(() => {
     getAllProducts().then(
       data => {
-        setAllProducts(data.products)
         sessionStorage.setItem('allproducts', JSON.stringify(data.products))
       }
     )
@@ -94,7 +91,6 @@ return (
     <NavBar />
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/allproducts' element={<AllProducts />} />
       <Route path='/yarn' element={<Yarn />} />
       <Route path='/tools' element={<CraftTools />} />
       <Route path='/books' element={<Books />} />
