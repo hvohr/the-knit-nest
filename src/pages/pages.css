@@ -42,6 +42,17 @@
 
 /*Login/Create Account Page*/
 
+.not-valid-account,
+.login-success {
+  font-family: 'Bobby Jones Condensed';
+}
+
+.login-success {
+  font-size: 25px;
+  width: 80%;
+}
+
+
 .login-suggest {
   font-family: 'Bobby Jones Condensed';
   font-size: 20px;
@@ -373,6 +384,9 @@ form {
 
 .promo-input {
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-items-container {
@@ -405,7 +419,8 @@ form {
 
 .small-cart-container {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
 
 .remove-promo {
@@ -792,16 +807,6 @@ input[type=checkbox] {
   justify-content: flex-start;
 }
 
-.not-valid-account,
-.login-success {
-  font-family: 'Bobby Jones Condensed';
-}
-
-.login-success {
-  font-size: 25px;
-  width: 80%;
-}
-
 @media only screen and (max-width: 600px) {
   .login-welcome {
     font-size: 39px;
@@ -812,5 +817,9 @@ input[type=checkbox] {
 
   form {
     width: 85%;
+  }
+  .checkout-container,
+  .cart-items-container {
+    width: 79%;
   }
 }

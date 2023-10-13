@@ -64,7 +64,9 @@ function Cart(props) {
       return Number(user.userID) == Number(currentUserID)
     })
     let cartFilter = products.filter((product) => {
-      return currentFind[0].cart.includes(product.id)
+      if (currentFind[0]) {
+        return currentFind[0].cart.includes(product.id)
+      }
     })
     setFinalCart(cartFilter)
   }
@@ -101,9 +103,9 @@ function Cart(props) {
   let totalPrice = () => {
     if (finalCart.length !== 0) {
       return finalCart.reduce((acc, cur) => {
-          let noSymbol = cur.price.split('$')
-          acc += Number(noSymbol[1])
-          return Number(acc.toFixed(2))
+        let noSymbol = cur.price.split('$')
+        acc += Number(noSymbol[1])
+        return Number(acc.toFixed(2))
       }, 0)
     } else {
       return 0
