@@ -112,12 +112,12 @@ nav {
     justify-content: center;
   }
 
-  .discount {
-    font-size: 15px;
+  .home-cat-image {
+    width: 100vw;
   }
 
-  nav {
-    width: 100vw;
+  .discount {
+    font-size: 15px;
   }
 
   .site-logo {
