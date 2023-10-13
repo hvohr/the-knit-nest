@@ -30,7 +30,7 @@ function CartItem(props) {
           deleteLogItem(cart.id)
           removeItem(cart.id)
         }}><img className='cart-delete' src={require('../images/close (3).png')} alt='purple x rounded' /></button>
-        <img className='cart-image' src={cart.image} />
+        <img className='cart-image' src={cart.image} alt={cart.name} />
         <h3 className='cart-item-info'>{cart.name}</h3>
         <h3 className='cart-item-info'>{cart.quantity}</h3>
         <h3 className='cart-item-info'>{cart.price}</h3>

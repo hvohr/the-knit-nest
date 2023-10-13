@@ -50,12 +50,12 @@ function InduvidualProduct(props) {
   return (
     <section className='whole-ind-yarn-container'>
       <div className='go-home-container'>
-        <Link to={`/${singleCheck().category}`}><img className='go-back' src={require('../components/images/left.png')} /></Link>
+        <Link to={`/${singleCheck().category}`}><img alt='return arrow' className='go-back' src={require('../components/images/left.png')} /></Link>
         <h1>Go Back</h1>
       </div>
       <section className='yarn-induvidual-container'>
         <div className='yarn-induvidual-image-container'>
-          <img className='yarn-ind-image' src={singleCheck().image} />
+          <img className='yarn-ind-image' alt={singleCheck().name} src={singleCheck().image} />
         </div>
         <div className='yarn-induvidual-detail-container'>
           <h1 className='ind-name'>{singleCheck().name}</h1>

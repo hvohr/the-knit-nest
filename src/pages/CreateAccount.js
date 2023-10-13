@@ -56,7 +56,7 @@ function CreateAccount(props) {
   return (
     <section className='login-container'>
       <div className='login-top'>
-        <h1 className='login-welcome'>Welcome to The Knit Nest<img className='login-kitten' src={require('../components/images/yarn-ball.png')} /></h1>
+        <h1 className='login-welcome'>Welcome to The Knit Nest<img className='login-kitten' alt='small cute kitten' src={require('../components/images/yarn-ball.png')} /></h1>
       </div>
       {!newUser && <form>
         {prevAccount && <p className='login-suggest'>Email already exists, <Link className='login-link' to='/login'>login </Link>instead?</p>}

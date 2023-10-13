@@ -8,13 +8,13 @@ function Home() {
       <img className='home-cat-image' src={require('../components/images/C8CA53A8-2415-440F-90C7-CFCEE5F54D0E_1_201_a.jpeg')} alt='black cat playing with a partial unstrung ball of yellow yarn' />
       <section className='home-ideas'>
         <div className='idea-container'>
-          <Link to='/yarn'><img className='lion-brand-link' src={require('../components/images/maranda-vandergriff-o-d37kiKqqc-unsplash.jpg')}/><h3 className='ideas-title'>Shop Lion Brand Yarn</h3></Link>
+          <Link to='/yarn'><img alt='multiple balls of yarn on a shelf' className='lion-brand-link' src={require('../components/images/maranda-vandergriff-o-d37kiKqqc-unsplash.jpg')}/><h3 className='ideas-title'>Shop Lion Brand Yarn</h3></Link>
         </div>
         <div className='idea-container'>
-          <Link to='/books'><img className='crochet-book-link' src={require('../components/images/ksenia-makagonova-LTxvq0tnOOk-unsplash.jpg')}/><h3 className='ideas-title'>Shop Crochet/Knit Books</h3></Link>
+          <Link to='/books'><img  alt='open book next to knitting needles and a half done project' className='crochet-book-link' src={require('../components/images/ksenia-makagonova-LTxvq0tnOOk-unsplash.jpg')}/><h3 className='ideas-title'>Shop Crochet/Knit Books</h3></Link>
         </div>
         <div className='idea-container'>
-          <Link to='/tools'><img className='knitting-needle-link' src={require('../components/images/nik-91UEmzLi-_Y-unsplash.jpg')}/><h3 className='ideas-title'>Shop Knitting Needles</h3></Link>
+          <Link to='/tools'><img alt='knitting needles and a circle of yarn' className='knitting-needle-link' src={require('../components/images/nik-91UEmzLi-_Y-unsplash.jpg')}/><h3 className='ideas-title'>Shop Knitting Needles</h3></Link>
         </div>
       </section>
     </section>

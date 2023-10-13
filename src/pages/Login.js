@@ -32,7 +32,7 @@ function Login(props) {
   return (
     <section className='login-container'>
       <div className='login-top'>
-        <h1 className='login-welcome'>Welcome Back to The Knit Nest<img className='login-kitten' src={require('../components/images/cat (1).png')} /></h1>
+        <h1 className='login-welcome'>Welcome Back to The Knit Nest<img alt='cute kitten with ball of yarn' className='login-kitten' src={require('../components/images/cat (1).png')} /></h1>
       </div>
      {!log && <form>
         <div className='email-container'>

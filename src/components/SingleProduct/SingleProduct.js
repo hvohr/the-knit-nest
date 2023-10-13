@@ -7,7 +7,7 @@ function SingleProduct(props) {
       return props.newYarn.map((product) => {
         return (
           <Link key={Date.now() + props.newYarn.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
-            <img className='book-image' src={product.image} />
+            <img className='book-image' src={product.image} alt={product.name} />
             <div>
               <h3 className='book-name'>{product.name}</h3>
               <h3 className='book-price'>{product.price}</h3>
@@ -22,7 +22,7 @@ function SingleProduct(props) {
     return props.products.map((product) => {
       return (
         <Link key={Date.now() + props.products.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
-          <img className='book-image' src={product.image} />
+          <img className='book-image' src={product.image} alt={product.name} />
           <div>
             <h3 className='book-name'>{product.name}</h3>
             <h3 className='book-price'>{product.price}</h3>
@@ -37,7 +37,7 @@ function SingleProduct(props) {
       return props.sortedBooks.map((product) => {
         return (
           <Link key={Date.now() + props.sortedBooks.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
-            <img className='book-image' src={product.image} />
+            <img className='book-image' src={product.image} alt={product.name}/>
             <div>
               <h3 className='book-name'>{product.name}</h3>
               <h3 className='book-price'>{product.price}</h3>
@@ -53,7 +53,7 @@ function SingleProduct(props) {
       return props.sortedTools.map((product) => {
         return (
           <Link key={Date.now() + props.sortedTools.indexOf(product)} id={product.id} className='small-book-container' to={`/${props.products[0].category}/${product.id}`}>
-            <img className='book-image' src={product.image} />
+            <img className='book-image' src={product.image} alt={product.name}/>
             <div>
               <h3 className='book-name'>{product.name}</h3>
               <h3 className='book-price'>{product.price}</h3>

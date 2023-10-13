@@ -80,7 +80,7 @@ return (
           <button className='close-button' onClick={() => {
             setFilter2('')
             setSortedTools([])
-          }}><img className='close-filter' src={require('../components/images/close (2).png')} /></button>
+          }}><img alt='the letter x'className='close-filter' src={require('../components/images/close (2).png')} /></button>
           <p className='ui-sort'>Sorting by: {filter2}</p>
         </div>}
       </div>
