@@ -7,6 +7,7 @@ import Books from '../../pages/Books'
 import AccountInfo from '../../pages/AccountInfo'
 import InduvidualProduct from '../../pages/InduvidualProduct'
 import Login from '../../pages/Login'
+import Error from '../../pages/Error'
 import Cart from '../../pages/Cart'
 import Search from '../../pages/Search'
 import CreateAccount from '../../pages/CreateAccount'
@@ -100,6 +101,7 @@ return (
       <Route path='/account' element={<AccountInfo allUsers={allUsers} />} />
       <Route path='/search' element={<Search />} />
       <Route path='/:category/:id' element={<InduvidualProduct setChange={setSingleCheck} currentUser={currentUser} cart={cart} submitProduct={submitProduct} setCart={setCart} />} />
+      <Route path='*' element={<Error/>} />
     </Routes>
   </div>
 );
