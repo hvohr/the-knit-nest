@@ -852,6 +852,11 @@ input[type=checkbox] {
     flex-direction: column;
   }
 
+  .filter-items {
+    display: flex;
+    flex-direction: column;
+  }
+
   .filter-container {
     flex-direction:row;
     width: 90%;
