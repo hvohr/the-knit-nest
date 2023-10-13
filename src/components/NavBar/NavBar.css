@@ -112,8 +112,16 @@ nav {
     justify-content: center;
   }
 
+  .discount {
+    font-size: 15px;
+  }
+
+  nav {
+    width: 100vw;
+  }
+
   .site-logo {
-    width: 300px;
+    width: 200px;
     margin: 5px;
   }
 
