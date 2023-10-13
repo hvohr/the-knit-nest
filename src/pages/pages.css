@@ -52,6 +52,11 @@
   width: 80%;
 }
 
+.not-valid-account,
+.empty-suggest {
+  color: rgb(226, 15, 15);
+}
+
 
 .login-suggest {
   font-family: 'Bobby Jones Condensed';
@@ -67,7 +72,6 @@
 .empty-suggest {
   font-family: 'Bobby Jones Condensed';
   font-size: 20px;
-  color: red;
   margin: 5px;
 }
 
