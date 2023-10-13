@@ -237,6 +237,11 @@ form {
   border: 1px solid lightgrey;
 }
 
+.search-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .search-cat {
   height: 60px;
 }
@@ -811,6 +816,7 @@ input[type=checkbox] {
   .login-welcome {
     font-size: 39px;
   }
+
   .login-kitten {
     height: 80px;
   }
@@ -818,8 +824,17 @@ input[type=checkbox] {
   form {
     width: 85%;
   }
+
   .checkout-container,
   .cart-items-container {
     width: 79%;
+  }
+
+  .search-bar-container {
+    flex-direction: column;
+  }
+
+  .search-bar {
+    width: 450px;
   }
 }
