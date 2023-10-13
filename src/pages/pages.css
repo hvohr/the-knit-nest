@@ -938,6 +938,18 @@ input[type="password"] {
   height: 220px;
 }
 
+.error-cat {
+  height: 300px;
+  width: 300px;
+}
+
+.error-container {
+  margin: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 900px) {
 
   .yarn-induvidual-container {
