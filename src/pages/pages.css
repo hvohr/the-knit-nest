@@ -858,7 +858,7 @@ input[type=checkbox] {
   }
 
   .filter-container {
-    flex-direction:row;
+    flex-direction: row;
     align-items: center;
     width: 90%;
   }
@@ -869,5 +869,32 @@ input[type=checkbox] {
 
   .uncheck-button {
     font-size: 19px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+
+  .yarn-induvidual-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .yarn-induvidual-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .yarn-ind-image {
+    width: 300px;
+    height: 390px;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px 5px rgb(213, 209, 209);
+  }
+
+  .yarn-induvidual-detail-container {
+    width: 80%;
   }
 }
