@@ -375,6 +375,32 @@ form {
   text-align: center;
 }
 
+/*Error Page*/
+.error-cat {
+  height: 510px;
+  width: 510px;
+  /* border-radius: 20px; */
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.error-home {
+  font-family: 'Bobby Jones Condensed';
+  font-size: 30px;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #4e2375;
+  color: white;
+  box-shadow: 4px 4px 4px lightgrey;
+  border: 1px solid lightgrey;
+}
+
 /*Cart Page*/
 
 .promo-container {
