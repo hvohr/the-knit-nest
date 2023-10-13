@@ -50,4 +50,4 @@ I graduated from the Turing Frontend Development Program and decided to take on 
 - Maintain proper git workflow and practices.
 
 ### Tech Stack
-- JavaScript, CSS/HTML, Webpack, React, React Router, FETCH API's, ExpressJS, Cors
+- JavaScript, CSS/HTML, Webpack, React, React Router, FETCH API's, ExpressJS, Cors, NodeJS
