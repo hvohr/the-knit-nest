@@ -830,11 +830,12 @@ input[type=checkbox] {
 
  input[type="email"],
 input[type="password"] {
-  width: 200px;
+  width: 180px;
   margin-left: 5px;
   font-size: 20px;
   height: 25px;
 }
+
 
   .login-kitten {
     height: 80px;
@@ -898,6 +899,13 @@ input[type="password"] {
   .uncheck-button {
     font-size: 15px;
   }
+}
+
+.lion-brand-link,
+.crochet-book-link,
+.knitting-needle-link {
+  width: 320px;
+  height: 240px;
 }
 
 @media only screen and (max-width: 900px) {
